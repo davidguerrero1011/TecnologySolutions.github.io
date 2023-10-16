@@ -1,7 +1,2 @@
 # Dependency directories
 node_modules/
-assets/splide-4.1.3
-
-#too long files
-assets/resources/files
-assets/resources/videos

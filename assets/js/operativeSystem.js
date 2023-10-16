@@ -29,7 +29,7 @@ $(document).ready(function () {
 	$('#instalationSystemOperative').attr('height', '220');
 
 	// Llena el select con los nombres de los sistemas operativos
-	let systems = ['Kali Linux', 'Kali Linux Booteado', 'Centos', 'Ubuntu', 'Oracle', 'Fedora'];
+	let systems = ['Kali Linux', 'Centos', 'Ubuntu', 'Oracle', 'Fedora'];
 	let options1;
 	systems.forEach((element, index) => {
 		options1 += `<option value="${index+1}">${element}</option>`;
@@ -67,7 +67,7 @@ $(document).ready(function () {
 });
 
 
-// burguer navbar
+// construye y despliega el menu hamburguesa 
 (function ($) {
 
 	"use strict";
@@ -109,7 +109,8 @@ $('#activeDinamyc li').on('mouseover', function () {
 });
 
 
-// Me redirigue en las opciones del menu principal a sistemas operativos o hardware
+// Me redirigue en las opciones del menu principal a sistemas operativos o hardware dependiendo 
+// De la parte del sitio donde este
 function redirecTo(view, type) {
 	if (view == 1) {
 		switch (type) {
@@ -163,70 +164,60 @@ $('#operativeSystems').on('change', function() {
 });
 
 // Descarga los pdfs de los manuales  
-$('#languagesFile').on('click', function() {
+$('#languagesFile').on('change', function() {
 	
 	$('#fileDownload').removeClass('d-none');	
 	$('#fileDownload').css('color', '#fff');
 
 	let operativeSOption = document.getElementById('operativeSystems').value;
-	let language = document.getElementById('languages').value;
-	let path = language == '1' ? `../assets/resources/files/spa/` : `../assets/resources/files/eng/`;
+	let language = document.getElementById('languagesFile').value;
+	let path = language == 1 ? `../assets/resources/files/spa/` : `../assets/resources/files/eng/`;
 	
 	switch (operativeSOption) {
 		case '1':
 			$('#fileDownloaded').attr('href', `${path}manual_instalacion_kali_linux.pdf`);
 			$('#fileDownloaded').attr('download', `manual_instalacion_kali_linux.pdf`);
 			$('#fileDownloaded').attr('rel', `Manual Kali Linux`);
-			$('#fileSystemDoc').text(language == 1 ? 'Manual Kali Linux' : 'Kali Linux Manual');
+			$('#fileSystemDoc').text(language == '1' ? 'Manual Kali Linux' : 'Kali Linux Manual');
             $('#fileSystemDoc').css('color', 'black');
             $('#fileSystemDoc').css('text-shadow', '2px 2px 4px #ffc107');
             $('#fileDownloaded').css('text-decoration', 'none');
 			break;
 		
 		case '2':
-			$('#fileDownloaded').attr('href', `${path}manual_instalacion_kali_linux_booteado.pdf`);
-			$('#fileDownloaded').attr('rel', `Manual Kali Linux Booteado`);
-			$('#fileDownloaded').attr('download', `manual_instalacion_kali_linux_booteado.pdf`);
-			$('#fileSystemDoc').text(language == 1 ? 'Manual Kali Linux Booteado' : 'Booted Kali Linux Manual');
+			$('#fileDownloaded').attr('href', `${path}manual_instalacion_centos.pdf`);
+			$('#fileDownloaded').attr('rel', `Manual Centos`);
+			$('#fileDownloaded').attr('download', `manual_instalacion_centos.pdf`);
+			$('#fileSystemDoc').text(language == '1' ? 'Manual Centos' : 'Centos Manual');
             $('#fileSystemDoc').css('color', 'black');
             $('#fileSystemDoc').css('text-shadow', '2px 2px 4px #ffc107');
             $('#fileDownloaded').css('text-decoration', 'none');
 			break;
 
 		case '3':
-			$('#fileDownloaded').attr('href', `${path}manual_instalacion_centos.pdf`);
-			$('#fileDownloaded').attr('rel', `Manual Centos`);
-			$('#fileDownloaded').attr('download', `manual_instalacion_centos.pdf`);
-			$('#fileSystemDoc').text(language == 1 ? 'Manual Centos' : 'Centos Manual');
+			$('#fileDownloaded').attr('href', `${path}manual_instalacion_ubuntu.pdf`);
+			$('#fileDownloaded').attr('rel', `Manual Ubuntu`);
+			$('#fileDownloaded').attr('download', `manual_instalacion_ubuntu.pdf`);
+			$('#fileSystemDoc').text(language == '1' ? 'Manual Ubuntu' : 'Ubuntu Manual');
             $('#fileSystemDoc').css('color', 'black');
             $('#fileSystemDoc').css('text-shadow', '2px 2px 4px #ffc107');
             $('#fileDownloaded').css('text-decoration', 'none');
 			break;
 
 		case '4':
-			$('#fileDownloaded').attr('href', `${path}manual_instalacion_ubuntu.pdf`);
-			$('#fileDownloaded').attr('rel', `Manual Ubuntu`);
-			$('#fileDownloaded').attr('download', `manual_instalacion_ubuntu.pdf`);
-			$('#fileSystemDoc').text(language == 1 ? 'Manual Ubuntu' : 'Ubuntu Manual');
-            $('#fileSystemDoc').css('color', 'black');
-            $('#fileSystemDoc').css('text-shadow', '2px 2px 4px #ffc107');
-            $('#fileDownloaded').css('text-decoration', 'none');
-			break;
-
-		case '5':
 			$('#fileDownloaded').attr('href', `${path}manual_instalacion_oracle.pdf`);
 			$('#fileDownloaded').attr('rel', `Manual Oracle`);
 			$('#fileDownloaded').attr('download', `manual_instalacion_oracle.pdf`);
-			$('#fileSystemDoc').text(language == 1 ? 'Manual Oracle' : 'Oracle Manual');
+			$('#fileSystemDoc').text(language == '1' ? 'Manual Oracle' : 'Oracle Manual');
             $('#fileSystemDoc').css('color', 'black');
             $('#fileSystemDoc').css('text-shadow', '2px 2px 4px #ffc107');
             $('#fileDownloaded').css('text-decoration', 'none');
 			break;
-		case '6':
+		case '5':
 			$('#fileDownloaded').attr('href', `${path}manual_instalacion_fedora.pdf`);
 			$('#fileDownloaded').attr('rel', `Manual Fedora`);
 			$('#fileDownloaded').attr('download', `manual_instalacion_fedora.pdf`);
-			$('#fileSystemDoc').text(language == 1 ? 'Manual Fedora' : 'Fedora Manual');
+			$('#fileSystemDoc').text(language == '1' ? 'Manual Fedora' : 'Fedora Manual');
             $('#fileSystemDoc').css('color', 'black');
             $('#fileSystemDoc').css('text-shadow', '2px 2px 4px #ffc107');
             $('#fileDownloaded').css('text-decoration', 'none');
