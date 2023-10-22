@@ -80,7 +80,7 @@
                                     </div>
                                     <div class="row my-5">
                                         <div class="col-5 mx-5">
-                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" id="technicalReport"></button>
+                                            <div type="button" class="button_slide slide_left" data-bs-toggle="modal" id="technicalReport"></div>
                                         </div>
                                         <div class="col-5">
                                             <a href="" rel="" id="technicalReportt" download=""><span id="textReport"></span></a>
@@ -96,7 +96,23 @@
         </div>
     </div>
 
-
+    <!-- Modal -->
+<div class="modal fade" id="reportModal" tabindex="-1" aria-labelledby="reportModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="reportModalLabel"></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="mx-3 my-3 d-flex justify-content-center">
+          <p id="descriptionReport"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="buttonOk"></button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
     <!-- Jquery Library -->

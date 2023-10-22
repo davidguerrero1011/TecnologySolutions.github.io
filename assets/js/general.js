@@ -21,12 +21,11 @@ $(document).ready(function () {
 		options += '<option value="2">Ingles</option>';
 	}
 	$('#languages').append(options);
-
-	// Carousel
-	$('.owl-carousel').owlCarousel();
-	$('#carruselBody').text(palabras[21]);
-	$('#buttonProject').text(palabras[23]);
 	
+	$('#titleBanner').css('font-family', 'SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace');
+	$('#titleBanner').css('font-size', '18px');
+	$('#titleBanner').css('background', 'linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%)');
+	$('#titleBanner').css('text-shadow', '8px 4px 4px black');
 
 });
 

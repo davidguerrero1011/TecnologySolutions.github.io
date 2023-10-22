@@ -1,45 +1,37 @@
 body {
-    padding : 10px ;
-    
-  }
-  
-  #exTab1 .tab-content {
-    color : white;
-    background-color: #428bca;
-    padding : 5px 15px;
-  }
-  
-  #exTab2 h3 {
-    color : white;
-    background-color: #428bca;
-    padding : 5px 15px;
-  }
-  
-  /* remove border radius for the tab */
-  
-  #exTab1 .nav-pills > li > a {
-    border-radius: 0;
-  }
-  
-  /* change border radius for the tab , apply corners on top*/
-  
-  #exTab3 .nav-pills > li > a {
-    border-radius: 4px 4px 0 0 ;
-  }
-  
-  #exTab3 .tab-content {
-    color : white;
-    background-color: #428bca;
-    padding : 5px 15px;
-  }
+  padding: 10px;
 
-  .color-title-home {
-    background: -webkit-linear-gradient(left top, #007bff, black, #007bff);
-    background: linear-gradient(to bottom right, #007bff, black, #007bff);
-    -webkit-background-clip: text;  
-    -webkit-text-fill-color: transparent;
-    text-shadow: 4px 2px 2px #007bff;
-  }
+}
+
+#exTab1 .tab-content {
+  color: white;
+  background-color: #428bca;
+  padding: 5px 15px;
+}
+
+#exTab2 h3 {
+  color: white;
+  background-color: #428bca;
+  padding: 5px 15px;
+}
+
+/* remove border radius for the tab */
+
+#exTab1 .nav-pills>li>a {
+  border-radius: 0;
+}
+
+/* change border radius for the tab , apply corners on top*/
+
+#exTab3 .nav-pills>li>a {
+  border-radius: 4px 4px 0 0;
+}
+
+#exTab3 .tab-content {
+  color: white;
+  background-color: #428bca;
+  padding: 5px 15px;
+}
 
 .header-color {
   background-color: #007bff;
@@ -49,4 +41,62 @@ body {
 .mx-6 {
   margin-left: 15%;
   margin-right: 15%;
+}
+
+/* imagenes glosario modal */
+.nuestrocontenedor {
+  position: relative;
+}
+
+.nuestraimagen {
+  display: block;
+  width: 90%;
+  height: auto;
+}
+
+.nuestrobloque {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 90%;
+  opacity: 0;
+  transition: 1.5s ease;
+  background-color: #007bff;
+}
+
+.nuestrotexto {
+  color: white;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+.nuestrocontenedor:hover .nuestrobloque {
+  opacity: 1;
+}
+
+.boldder-fontt {
+  font-weight: bolder;
+  color: white;
+}
+
+.button_slide {
+  color: #FFF;
+  border: 2px solid #007bff;
+  border-radius: 0px;
+  padding: 18px 36px;
+  display: inline-block;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 14px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 0 #007bff;
+  -webkit-transition: ease-out 0.4s;
+  -moz-transition: ease-out 0.4s;
+  transition: ease-out 0.4s;
+}
+
+.slide_left:hover {
+  box-shadow: inset 0 0 0 50px #007bff;
 }

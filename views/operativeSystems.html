@@ -51,11 +51,12 @@
                 <div class="container">
                     <div class="colorlib-navbar-brand" id="titleNav">
                         <a class="colorlib-logo" href="../index.html">
-                            <h3 id="titleBanner" class="color-title-home"></h3>
+                            <h3 id="titleBanner"></h3>
                         </a>
                     </div>
                     <div class="align-center">
-                        <select class="form-select" aria-label="Default select example" id="languages" onchange="ShowSelected()"></select>
+                        <select class="form-select" aria-label="Default select example" id="languages"
+                            onchange="ShowSelected()"></select>
                     </div>
                     <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle" id="toggleNav"><i></i></a>
                 </div>
@@ -86,10 +87,12 @@
                         </nav>
                         <div class="tab-content" id="myTabContent">
                             <!-- First Tab -->
-                            <div class="tab-pane fade show active" id="video" role="tabpanel" aria-labelledby="home-tab">
-                                <iframe class="mt-3" id="instalationSystemOperative" width="" height="" src="" frameborder="0" allow="autoplay; mute; encrypted-media" allowfullscreen></iframe>
+                            <div class="tab-pane fade show active" id="video" role="tabpanel"
+                                aria-labelledby="home-tab">
+                                <iframe class="mt-3" id="instalationSystemOperative" width="" height="" src=""
+                                    frameborder="0" allow="autoplay; mute; encrypted-media" allowfullscreen></iframe>
                             </div>
-                             <!-- Second Tab -->
+                            <!-- Second Tab -->
                             <div class="tab-pane fade" id="documentary" role="tabpanel" aria-labelledby="profile-tab">
                                 <div class="container mt-5">
                                     <div class="row justify-content-md-center">
@@ -118,12 +121,13 @@
 
                                     <div class="d-grid mt-4 gap-2 row d-md-flex justify-content-md-center">
                                         <div class="col-6">
-                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                                id="glosario"></button>
+                                            <div type="button" class="button_slide slide_left" data-bs-toggle="modal"
+                                                id="glosario"></div>
                                         </div>
 
                                         <div class="col-6">
-                                            <a href="" rel="" download="" class="stretched-link text-warning" id="glosaryDownload"></a>
+                                            <a href="" rel="" download="" class="stretched-link text-warning"
+                                                id="glosaryDownload"></a>
                                         </div>
                                     </div>
                                 </div>
@@ -147,10 +151,19 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    Glosario Palabras
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col" id="imageColumn"></th>
+                            </tr>
+                        </thead>
+                        <tbody id="glosaryContent"></tbody>
+                    </table>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="modalBoton" data-bs-dismiss="modal">Aceptar</button>
+                    <button type="button" class="btn btn-primary" id="modalBoton"
+                        data-bs-dismiss="modal">Aceptar</button>
                 </div>
             </div>
         </div>

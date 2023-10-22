@@ -37,6 +37,11 @@ $(document).ready(function () {
 
 	$('#navbarTitle').attr('href', '../index.html');
 
+	$('#titleBanner').css('font-family', 'SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace');
+	$('#titleBanner').css('font-size', '18px');
+	$('#titleBanner').css('background', 'linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%)');
+	$('#titleBanner').css('text-shadow', '8px 4px 4px black');
+
 });
 
 
@@ -49,9 +54,12 @@ function optionsHardware() {
 	} else if (option == 2) {
 		$('#seeGlosary').css('display', 'none');
 		$('#fileDownloade').css('display', 'inline');
-	} else {
+	} else if(option == 3) {
 		$('#seeGlosary').css('display', 'inline');
 		$('#fileDownloade').css('display', 'inline');
+	} else {
+		$('#seeGlosary').css('display', 'none');
+		$('#fileDownloade').css('display', 'none');
 	}
 }
 

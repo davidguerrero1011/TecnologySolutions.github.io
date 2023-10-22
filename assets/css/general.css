@@ -3873,7 +3873,7 @@ input[type="button"].btn-block {
 .dropdown-item:active {
     color: #fff;
     text-decoration: none;
-    background-color: #007bff;
+    background-color: rgb(--yellow, white --yellow);
 }
 
 .dropdown-item.disabled,
@@ -12094,7 +12094,7 @@ header .colorlib-navbar-brand .colorlib-logo:focus {
 }
 
 .menu-show .colorlib-nav-toggle i {
-    background: #007bff;
+    background: #fff;
     color: #007bff;
     text-shadow: 4px 2px 2px #007bff;
 }
@@ -12104,8 +12104,8 @@ header .colorlib-navbar-brand .colorlib-logo:focus {
     content: '';
     width: 30px;
     height: 2px;
-    background: #007bff;
-    text-shadow: 4px 2px 2px #007bff;
+    background: #fff;
+    text-shadow: 4px 2px 2px #fff;
     position: absolute;
     left: 0;
     -webkit-transition: 0.2s;
