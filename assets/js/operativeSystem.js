@@ -26,7 +26,7 @@ $(document).ready(function () {
 	$('#titleSystems').css('font-family', '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji');
 
 	// Carga el video de instalacion cuando cargue el DOM
-	$('#instalationSystemOperative').attr('src', '../assets/resources/videos/operative-system-instalation.mp4');
+	$('#instalationSystemOperative').attr('src', '../assets/resources/videos/SistemasOperativos.mp4');
 	$('#instalationSystemOperative').attr('width', '454');
 	$('#instalationSystemOperative').attr('height', '220');
 
@@ -63,17 +63,61 @@ $(document).ready(function () {
 	}
 	$('#languages').append(options);
 
-
-
 	// Carga algunos elementos con atributos por default
 	$('#titleBanner').css('font-family', 'SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace');
 	$('#titleBanner').css('font-size', '18px');
 	$('#titleBanner').css('background', 'linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%)');
 	$('#titleBanner').css('text-shadow', '8px 4px 4px black');
-	
+
 	$('.colorlib-logo').css('text-decoration', 'none');
 
 
+	// Select Language Options
+	$('.sel').each(function () {
+		$(this).children('select').css('display', 'none');
+
+		var $current = $(this);
+
+		$(this).find('option').each(function (i) {
+			if (i == 0) {
+				$current.prepend($('<div>', {
+					class: $current.attr('class').replace(/sel/g, 'sel__box')
+				}));
+
+				var placeholder = $(this).text();
+				$current.prepend($('<span>', {
+					class: $current.attr('class').replace(/sel/g, 'sel__placeholder'),
+					text: placeholder,
+					'data-placeholder': placeholder
+				}));
+
+				return;
+			}
+
+			$current.children('div').append($('<span>', {
+				class: $current.attr('class').replace(/sel/g, 'sel__box__options'),
+				text: $(this).text()
+			}));
+		});
+	});
+
+	// Toggling the `.active` state on the `.sel`.
+	$('.sel').click(function () {
+		$(this).toggleClass('active');
+	});
+
+	// Toggling the `.selected` state on the options.
+	$('.sel__box__options').click(function () {
+		var txt = $(this).text();
+		var index = $(this).index();
+
+		$(this).siblings('.sel__box__options').removeClass('selected');
+		$(this).addClass('selected');
+
+		var $currentSel = $(this).closest('.sel');
+		$currentSel.children('.sel__placeholder').text(txt);
+		$currentSel.children('select').prop('selectedIndex', index + 1);
+	});
 
 });
 
@@ -161,8 +205,6 @@ function redirecTo(view, type) {
 
 	}
 }
-
-
 
 // Cuando seleccione alguno de los sistemas operativos
 // me mostrara la posibilidad de ingles o español
@@ -254,173 +296,6 @@ $('#glosario').on('click', function () {
 	$('#glosarioModalLabel').css('font-family', 'SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace');
 	$('#modalBoton').css('font-family', 'SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace');
 
-	let pathImages = `../assets/resources/images/glosary-images/`;
-	let imagesBackground = [
-		`${pathImages}adaption.png`,
-		`${pathImages}admin.png`,
-		`${pathImages}apps.png`,
-		`${pathImages}backup.png`,
-		`${pathImages}boot.png`,
-		`${pathImages}bridge-adapter.png`,
-		`${pathImages}browse.png`,
-		`${pathImages}clone.png`,
-		`${pathImages}cloud.png`,
-		`${pathImages}cmd.png`,
-		`${pathImages}code.png`,
-		`${pathImages}commands.png`,
-		`${pathImages}copy.png`,
-		`${pathImages}data.png`,
-		`${pathImages}directory.png`,
-		`${pathImages}domine.png`,
-		`${pathImages}downloads.png`,
-		`${pathImages}drivers.png`,
-		`${pathImages}execute.png`,
-		`${pathImages}extensions.png`,
-		`${pathImages}fedora.png`,
-		`${pathImages}file.png`,
-		`${pathImages}install.png`,
-		`${pathImages}iso.png`,
-		`${pathImages}kali-linux.png`,
-		`${pathImages}linux.png`,
-		`${pathImages}local-server.png`,
-		`${pathImages}memory.png`,
-		`${pathImages}nat.png`,
-		`${pathImages}network.png`,
-		`${pathImages}online.png`,
-		`${pathImages}operative-systems.png`,
-		`${pathImages}oracle.png`,
-		`${pathImages}ping.png`,
-		`${pathImages}programs.png`,
-		`${pathImages}restart.png`,
-		`${pathImages}rufus.png`,
-		`${pathImages}server.png`,
-		`${pathImages}settings.png`,
-		`${pathImages}software.png`,
-		`${pathImages}subdirectory.png`,
-		`${pathImages}system.png`,
-		`${pathImages}ubuntu.png`,
-		`${pathImages}updated.png`,
-		`${pathImages}virtual.png`,
-		`${pathImages}virtual_box.png`,
-		`${pathImages}virtual-hard-disk.png`,
-		`${pathImages}web.png`,
-		`${pathImages}windows.png`
-	];
-
-	let imagesDescripts = [
-		'Un tipo especial de software diseñado para adaptarse a las diferentes necesidades de sus usuarios.',
-		'Gestiona cuentas de usuario, permisos, derechos de acceso y espacio de almacenamiento.',
-		'Un programa informático diseñado como herramienta para una tarea específica.',
-		'Cree copias de materiales originales y proporcione métodos de recuperación en caso de pérdida.',
-		'Unidad extraíble de arranque que es capaz de iniciarse sola dentro del ordenador sin necesidad de un sistema operativo que abra las aplicaciones.',
-		'La máquina está conectada a la misma red que la computadora host, por lo que la máquina virtual es como una PC conectada a una red real.',
-		'Enlazar de una página web a otra en una computadora conectada a Internet se llama navegación, de ahí el nombre de navegador.',
-		'Se refiere al proceso de creación de una representación precisa de un objeto, generalmente bajo los supuestos de programación estática u orientada a objetos.',
-		'Utilizar una red de servidores remotos conectados a Internet para almacenar, administrar y mantener datos, servidores, bases de datos, redes y computadoras.',
-		'Intérprete de comandos en sistemas OS/2 y Windows NT.',
-		'Melodía aquellos que estructuran el dialecto de programación, que a su ocasión es el encargado de jurar el justo funcionamiento de las aplicaciones ya programas que permiten una buena golpe entre el heredero y la computadora.',
-		'Un comando es un mensaje enviado a una computadora que desencadena una respuesta en ese sistema y actúa como un sistema porque le dice al dispositivo informático que actúe en función de lo que se envía.',
-		'Los datos de su computadora y otra información comercial pueden copiarse si sus datos se dañan, eliminan o se pierden.',
-		'Un indicador de cambio en cantidad o calidad.',
-		'Un contenedor real que contiene un conjunto de archivos informáticos y otros componentes que se almacenan según su contenido, finalidad o método elegido por el usuario.',
-		'Un dominio es un nombre único que identifica parte de Internet.',
-		'La descarga de archivos es la transferencia de archivos de computadora a dispositivos electrónicos a través de una conexión a Internet.',
-		'Un programa de software que permite que el sistema operativo interactúe con un dispositivo portátil integrado y proporciona una interfaz de usuario para el dispositivo.',
-		'La tarea es comenzar a descargar un programa o archivo ejecutable.',
-		'Una conexión física y funcional entre dos dispositivos o sistemas independientes',
-		'Indica qué programa creó el archivo o puede abrirlo, y qué formato utiliza el archivo.',
-		'Fedora es una distribución GNU/Linux de propósito general. Lo mantiene una comunidad internacional de ingenieros, diseñadores gráficos y usuarios.',
-		'Lista de bytes almacenados en el dispositivo.',
-		'Es el evolución central por el cual los nuevos programas tonada transferidos a un computador con el extinción de individuo configurados, y preparados para individuo.',
-		'Un archivo de computadora que almacena una copia o imagen exacta de un archivo.',
-		'Una distribución basada en Debian GNU/Linux diseñada para monitorear su computadora y mantenerla segura en todo momento.',
-		'Es un software que te permite realizar tareas. Incluyen de todo, desde herramientas de escritorio hasta lenguajes de programación y suites empresariales multiusuario. Fedora es una distribución GNU/Linux de propósito general. Lo mantiene una comunidad internacional de ingenieros, diseñadores gráficos y usuarios.',
-		'Un dominio es un nombre único que identifica un sitio web. Una computadora que proporciona recursos, datos, servicios o software a otras computadoras (llamadas clientes) en la red.',
-		'La memoria virtual es un sistema de administración de memoria que garantiza que el sistema operativo proporcione la máxima cantidad de memoria físicamente disponible para los programas del usuario y para sí mismo.',
-		'Un método utilizado por los enrutadores IP para transmitir paquetes entre dos redes que comparten direcciones diferentes.',
-		'Es un dispositivo conectado a través de métodos de transmisión de datos como cables, señales y ondas de radio para compartir información (archivos) y recursos.',
-		'Un objeto o persona conectado que utiliza Internet, generalmente Internet.',
-		'Un sistema operativo es un conjunto de programas en un sistema informático que administra recursos de hardware y proporciona servicios a aplicaciones de software.',
-		'Empresa especializada en el desarrollo de soluciones en la nube y on-premise.',
-		'Ping es una herramienta de comando disponible en todos los sistemas operativos con conexión de red y se utiliza para comprobar si se puede encontrar un dispositivo en la red.',
-		'Conjunto de instrucciones o reglas relacionadas con un lenguaje de programación que una computadora interpreta para resolver un problema o tarea.',
-		'Intente restaurar su PC a una "imagen" anterior (o modo de recuperación).',
-		'Es un programa portátil, gratuito y de código abierto para Microsoft Windows que se puede utilizar para crear y construir memorias USB o memorias USB Live.',
-		'Es gracia cuidador instalado en un utilería sensato con el terminación de obrar offline y online.',
-		'Una configuración es un conjunto de datos que determina los valores de ciertas configuraciones para un programa de computadora o sistema operativo.',
-		'Conjunto de programas y sistemas que permiten a una computadora realizar determinadas tareas.',
-		'Una carpeta dentro de otra carpeta. Un directorio que contiene subdirectorios se denomina directorio principal. El nombre de cada carpeta debe ser diferente del directorio en el que está almacenada.',
-		'Los sistemas informáticos se encargan de recibir, almacenar y procesar la información para proporcionar resultados posteriores.',
-		'Ubuntu es una distribución de Linux basada en Debian GNU/Linux, que incluye principalmente software gratuito y de código abierto.',
-		'Determinan el rendimiento y la seguridad de su computadora.',
-		'Es un programa desarrollado por Oracle Corporation que permite el uso de máquinas virtuales con diferentes características, como sistema operativo, capacidad del disco duro o memoria RAM.',
-		'La empresa ofrece espacio a los clientes como solución de almacenamiento de datos.',
-		'Sistema informático para crear instantáneamente escenas de realidad virtual.',
-		'Windows es el sistema operativo insignia de Microsoft y el estándar de facto para computadoras domésticas y comerciales.',
-		'Una conexión física y funcional entre dos dispositivos o sistemas independientes.',
-	];
-
-	let descriptionsTranslate = [
-		'A special type of software designed to adapt to the different needs of its users.',
-		'Manage user accounts, permissions, access rights and storage space.',
-		'A computer program designed as a tool for a specific task.',
-		'Create copies of original materials and provide recovery methods in case of loss.',
-		'removable bootable drive that is capable of starting on its own within the computer without the need for an operating system to open applications.',
-		'The machine is connected to the same network as the host computer, so the virtual machine is like a PC connected to a real network.',
-		'Linking from one web page to another on a computer connected to the Internet is called browsing, hence the name browser.',
-		'It refers to the process of creating an accurate representation of an object, generally under the assumptions of static or object-oriented programming.',
-		'use a network of remote servers connected to the Internet to store, manage and maintain data, servers, databases, networks and computers.',
-		'Command interpreter on OS/2 and Windows NT systems.',
-		'melody those who structure the programming language, which in turn is responsible for ensuring the proper functioning of the applications and programs that allow a good connection between the user and the computer.',
-		'A command is a message sent to a computer that triggers a response in that system and acts like a system because it tells the computing device to act based on what is sent.',
-		'Your computer data and other business information may be copied if your data is damaged, deleted, or lost.',
-		'An indicator of change in quantity or quality.',
-		'An actual container that contains a set of computer files and other components that are stored according to their content, purpose, or method chosen by the user.',
-		'A domain is a unique name that identifies a part of the Internet.',
-		'File downloading is the transfer of files from computer to electronic devices over an Internet connection..',
-		'A software program that allows the operating system to interact with an embedded portable device and provides a user interface for the device.',
-		'The task is to start downloading a program or executable file.',
-		'A physical and functional connection between two independent devices or systems.',
-		'Indicates which program created the file or can open it, and what format the file uses.',
-		'Fedora is a general-purpose GNU/Linux distribution. It is maintained by an international community of engineers, graphic designers and users.',
-		'List of bytes stored on the device.',
-		'It is the central process by which new programs are transferred to a computer with the user interface configured, and prepared for individual.',
-		'A computer file that stores an exact copy or image of a file.',
-		'A Debian GNU/Linux based distribution designed to monitor your computer and keep it safe at all times.',
-		'It is software that allows you to perform tasks. It includes everything from desktop tools to programming languages to multi-user business suites.',
-		'A domain is a unique name that identifies a website. A computer that provides resources, data, services, or software to other computers (called clients) on the network.',
-		'Virtual memory is a memory management system that ensures that the operating system provides the maximum amount of physically available memory for user programs and itself.',
-		'A method used by IP routers to transmit packets between two networks that share different addresses.',
-		'is a device connected through data transmission methods such as cables, signals and radio waves to share information (files) and resources.',
-		'A connected object or person that uses the Internet, usually the Internet.',
-		'An operating system is a set of programs in a computer system that manages hardware resources and provides services to software applications.',
-		'Company specialized in the development of cloud and on-premise solutions.',
-		'Ping is a command tool available on all network-enabled operating systems and is used to check if a device can be found on the network.',
-		'A set of instructions or rules related to a programming language that a computer interprets to solve a problem or task.',
-		'Try restoring your PC to a previous "image" (or recovery mode).',
-		'It is a free, open source, portable program for Microsoft Windows that can be used to create and build USB sticks or Live USB sticks.',
-		'It is a smart device installed in a smart tool with the ability to work offline and online.',
-		'A configuration is a set of data that determines the values of certain settings for a computer program or operating system.',
-		'A set of programs and systems that allow a computer to perform certain tasks.',
-		'A folder within another folder. A directory that contains subdirectories is called a parent directory. The name of each folder must be different from the directory in which it is stored.',
-		'Computer systems are responsible for receiving, storing and processing information to provide subsequent results.',
-		'Ubuntu is a Linux distribution based on Debian GNU/Linux, which includes mainly free and open source software.',
-		'They determine the performance and security of your computer.',
-		'It is a program developed by Oracle Corporation that allows the use of virtual machines with different characteristics, such as operating system, hard disk capacity or RAM memory.',
-		'The company offers space to customers as a data storage solution.',
-		'Computer system to instantly create virtual reality scenes.',
-		'Windows is Microsofts flagship operating system and the de facto standard for home and business computers.',
-		'A physical and functional connection between two independent devices or systems.',
-	];
-
-	let titles = ['Adaptacion', 'Admin', 'Apps', 'Backup', 'Boot', 'Puente Adaptador', 'Navegador',
-		'Clonar', 'Nube', 'Terminal', 'Código', 'Comandos', 'Copiar', 'Datos',
-		'Directorio', 'Dominio', 'Descargas', 'Controladores', 'Executar', 'Extensiones', 'Fedora',
-		'Archivo', 'Instalar', 'ISO', 'Kali Linux', 'Linux', 'Servidor Local', 'Memoria',
-		'Nat', 'Red', 'En Linea', 'Sistemas Operativos', 'Oracle', 'PING', 'Programas',
-		'Restaurar', 'Rufus', 'Servidor', 'Configuración', 'Software', 'Subdirectorio', 'Sistema',
-		'Ubuntu', 'Actualizar', 'Caja Virtual', 'Virtual', 'Web', 'Windows'
-	];
 
 	let opt = '';
 	for (let i = 0; i < imagesBackground.length; i++) {

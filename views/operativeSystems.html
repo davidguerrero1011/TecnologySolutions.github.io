@@ -34,11 +34,11 @@
                 <div class="colorlib-table-cell js-fullheight">
                     <div class="row no-gutters">
                         <div class="col-md-12 text-center">
-                            <h1 class="mb-4"><a class="logo" id="navbarTitle"></a></h1>
+                            <h1 class="mb-4 cursor"><a class="logo" id="navbarTitle"></a></h1>
                             <ul id="activeDinamyc">
-                                <li><a onclick="redirecTo(2, 1)"><span id="menu1"></span></a></li>
-                                <li><a onclick="redirecTo(2, 2)"><span id="menu2"></span></a></li>
-                                <li><a onclick="redirecTo(2, 2)"><span id="menu3"></span></a></li>
+                                <li class="cursor"><a onclick="redirecTo(2, 1)"><span id="menu1"></span></a></li>
+                                <li class="cursor"><a onclick="redirecTo(2, 2)"><span id="menu2"></span></a></li>
+                                <li class="cursor"><a onclick="redirecTo(2, 2)"><span id="menu3"></span></a></li>
                             </ul>
                         </div>
                     </div>
@@ -55,8 +55,7 @@
                         </a>
                     </div>
                     <div class="align-center">
-                        <select class="form-select" aria-label="Default select example" id="languages"
-                            onchange="ShowSelected()"></select>
+                        <select onchange="ShowSelected()" id="languages"></select>
                     </div>
                     <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle" id="toggleNav"><i></i></a>
                 </div>
@@ -87,25 +86,23 @@
                         </nav>
                         <div class="tab-content" id="myTabContent">
                             <!-- First Tab -->
-                            <div class="tab-pane fade show active" id="video" role="tabpanel"
+                            <div class="tab-pane fade show active cursor" id="video" role="tabpanel"
                                 aria-labelledby="home-tab">
                                 <iframe class="mt-3" id="instalationSystemOperative" width="" height="" src=""
                                     frameborder="0" allow="autoplay; mute; encrypted-media" allowfullscreen></iframe>
                             </div>
                             <!-- Second Tab -->
-                            <div class="tab-pane fade" id="documentary" role="tabpanel" aria-labelledby="profile-tab">
+                            <div class="tab-pane fade cursor" id="documentary" role="tabpanel" aria-labelledby="profile-tab">
                                 <div class="container mt-5">
                                     <div class="row justify-content-md-center">
                                         <div class="col-4">
-                                            <select class="form-select" aria-label="Default select example"
-                                                id="operativeSystems">
+                                            <select id="operativeSystems">
                                                 <option value="0" id="languageSelected" selected></option>
                                             </select>
                                         </div>
 
                                         <div id="documentaryFile" class="col-4">
-                                            <select class="form-select" aria-label="Default select example"
-                                                id="languagesFile">
+                                            <select id="languagesFile">
                                                 <option id="option1" value="1">Español</option>
                                                 <option id="option2" value="2">Ingles</option>
                                             </select>

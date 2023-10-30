@@ -34,11 +34,11 @@
                 <div class="colorlib-table-cell js-fullheight">
                     <div class="row no-gutters">
                         <div class="col-md-12 text-center">
-                            <h1 class="mb-4"><a class="logo" id="navbarTitle"></a></h1>
+                            <h1 class="mb-4 cursor"><a class="logo" id="navbarTitle"></a></h1>
                             <ul id="activeDinamyc">
-                                <li><a onclick="redirecTo(2, 1)"><span id="menu1"></span></a></li>
-                                <li><a onclick="redirecTo(2, 2)"><span id="menu2"></span></a></li>
-                                <li><a onclick="redirecTo(2, 3)"><span id="menu3"></span></a></li>
+                                <li class="cursor"><a onclick="redirecTo(2, 1)"><span id="menu1"></span></a></li>
+                                <li class="cursor"><a onclick="redirecTo(2, 2)"><span id="menu2"></span></a></li>
+                                <li class="cursor"><a onclick="redirecTo(2, 3)"><span id="menu3"></span></a></li>
                             </ul>
                         </div>
                     </div>
@@ -55,8 +55,7 @@
                         </a>
                     </div>
                     <div class="align-center">
-                        <select class="form-select" aria-label="Default select example" id="languages"
-                            onchange="ShowSelected()"></select>
+                        <select onchange="ShowSelected()" id="languages"></select>
                     </div>
                     <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle" id="toggleNav"><i></i></a>
                 </div>
@@ -66,29 +65,31 @@
                 <div class="container px-0">
                     <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center"
                         data-scrollax-parent="true">
-                        <div class="col-md-12 ftco-animate text-center">
-                            <div class="desc">
-                              <h3 id="titleHardware" class="mt-3"></h3>
-                               
-                              <div class="container">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <iframe class="mt-3" id="hardware" width="" height="" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                                        
-                                        <div class="row mt-4">
-                                            <div class="col-4">
-                                                <select class="form-select" aria-label="Default select example" id="optionsHardware" onchange="optionsHardware()"></select>
+                        <div class="col-md-12 ftco-animate text-center mt-5">
+                            <div class="desc mt-5">
+                                <h3 id="titleHardware" class="mt-3"></h3>
+
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <iframe class="mt-3" id="hardware" width="" height="" src="" frameborder="0"
+                                                allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+                                            <div class="row mt-4">
+                                                <div class="col-4">
+                                                    <select id="optionsHardware" onchange="optionsHardware()"></select>
+                                                </div>
+
+                                                <div class="col-4" id="seeGlosary">
+                                                    <div type="button" id="showGlosary" class="button_slide slide_left"
+                                                        data-bs-toggle="modal"></div>
+                                                </div>
+
+                                                <a class="col-4" href="" rel="" id="fileDownloade" download=""></a>
                                             </div>
-                                            
-                                            <div class="col-4" id="seeGlosary">
-                                                <div type="button" id="showGlosary" class="button_slide slide_left" data-bs-toggle="modal"></div>
-                                            </div>
-    
-                                            <a class="col-4" href="" rel="" id="fileDownloade" download=""></a>
                                         </div>
                                     </div>
                                 </div>
-                              </div>
 
                             </div>
                         </div>
@@ -112,7 +113,8 @@
                     <h4 id="titleModal"></h4>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="modalBoton" data-bs-dismiss="modal">Aceptar</button>
+                    <button type="button" class="btn btn-primary" id="modalBoton"
+                        data-bs-dismiss="modal">Aceptar</button>
                 </div>
             </div>
         </div>

@@ -36,6 +36,10 @@
 *::after {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
+    cursor: inherit;
+    transition-duration: .2s;
+    transition-property: none;
+    transition-timing-function: cubic-bezier(.42, 0, .58, 1)
 }
 
 html {
@@ -69,6 +73,13 @@ body {
     color: #212529;
     text-align: left;
     background-color: #fff;
+    max-width: 1440px;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 [tabindex="-1"]:focus {
@@ -12062,12 +12073,12 @@ header .colorlib-navbar-brand .colorlib-logo:focus {
 
 .colorlib-nav-toggle.active i::before,
 .colorlib-nav-toggle.active i::after {
-    background: #000;
+    background: #fff;
 }
 
 .colorlib-nav-toggle.dark.active i::before,
 .colorlib-nav-toggle.dark.active i::after {
-    background: #000;
+    background: #fff;
 }
 
 .colorlib-nav-toggle:hover,
@@ -12086,7 +12097,7 @@ header .colorlib-navbar-brand .colorlib-logo:focus {
     font: bold 14px/.4 Helvetica;
     text-transform: uppercase;
     text-indent: -55px;
-    background: black;
+    background: white;
     text-shadow: 4px 2px 2px #007bff;
     -webkit-transition: all .2s ease-out;
     -o-transition: all .2s ease-out;
@@ -12240,8 +12251,233 @@ header .colorlib-navbar-brand .colorlib-logo:focus {
 /* End Menu Burguer NavBar  */
 
 
+/* Carrusel */
+.slider-wrapper {
+    margin: 1rem;
+    position: relative;
+    overflow: hidden;
+}
 
-/* Carusel */ 
-.background-carousel {
-    background-color: #004085;
+.slides-container {
+    height: calc(70vh - 2rem);
+    width: 100%;
+    display: flex;
+    overflow: scroll;
+    scroll-behavior: smooth;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.slide-arrow {
+    position: absolute;
+    display: flex;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: 4rem;
+    background-color: white;
+    border: none;
+    width: 2rem;
+    font-size: 3rem;
+    padding: 0;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: opacity 100ms;
+}
+
+.slide-arrow:hover,
+.slide-arrow:focus {
+    opacity: 1;
+}
+
+#slide-arrow-prev {
+    left: 0;
+    padding-left: 0.25rem;
+    border-radius: 0 2rem 2rem 0;
+}
+
+#slide-arrow-next {
+    right: 0;
+    padding-left: 0.75rem;
+    border-radius: 2rem 0 0 2rem;
+}
+
+.slide {
+    width: 100%;
+    height: 100%;
+    flex: 1 0 100%;
+}
+
+.slide:nth-child(1) {
+    background-image: url('../resources/images/Geronimo.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.slide:nth-child(2) {
+    background-image: url('../resources/images/maicol.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.slide:nth-child(3) {
+    background-image: url('../resources/images/nicolas.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.slide:nth-child(4) {
+    background-image: url('../resources/images/will.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.carousel-container {
+    width: 100%;
+    height: 300px;
+    /* Adjust height as needed */
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-item {
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.button {
+    margin-top: 3px;
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: black;
+    outline: none;
+    color: black;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+    transition-duration: 0.4s;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.button:hover {
+    color: white;
+    background-color: #17a2b8;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+/* imagenes glosario modal */
+.nuestrocontenedor {
+    position: relative;
+}
+
+.nuestraimagen {
+    display: block;
+    width: 90%;
+    height: auto;
+}
+
+.nuestrobloque {
+    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: 1.5s ease;
+    background-color: #007bff;
+}
+
+.nuestrotexto {
+    color: white;
+    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+.nuestrocontenedor:hover .nuestrobloque {
+    opacity: 1;
+}
+
+
+
+
+/* Select Home */
+:root {
+    --arrow-bg: rgba(255, 255, 255, 0.3);
+    --arrow-icon: url(https://upload.wikimedia.org/wikipedia/commons/9/9d/Caret_down_font_awesome_whitevariation.svg);
+    --option-bg: white;
+    --select-bg: rgba(255, 255, 255, 0.2);
+}
+
+/* <select> styles */
+select {
+    appearance: none;
+    border: 0;
+    outline: 0;
+    font: inherit;
+    width: 20rem;
+    padding: 1rem 4rem 1rem 1rem;
+    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    background: var(--arrow-icon) no-repeat right 0.8em center / 1.4em,
+        linear-gradient(to left, var(--arrow-bg) 3em, var(--select-bg) 3em);
+    color: black;
+    border-radius: 0.25em;
+    box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+
+    &::-ms-expand {
+        display: none;
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    option {
+        color: var(--blue);
+        background-color: var(--blue);
+        font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+}
+
+/* Button */
+.button_slide {
+    color: #FFF;
+    border: 2px solid #007bff;
+    border-radius: 0px;
+    padding: 18px 36px;
+    display: inline-block;
+    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 14px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: inset 0 0 0 0 #007bff;
+    -webkit-transition: ease-out 0.4s;
+    -moz-transition: ease-out 0.4s;
+    transition: ease-out 0.4s;
+}
+
+.slide_left:hover {
+    box-shadow: inset 0 0 0 50px #007bff;
+}
+
+.cursor {
+    cursor: pointer;
 }
