@@ -105,7 +105,7 @@ function ShowSelected() {
 $('#technicalReport').on('click', function () {
 
 	$('#reportModalLabel').text(words[20]);
-	$('#descriptionReport').text(words[24]);
+	$('#descriptionReport').text(words[47]);
 	$('.modal-header').css('background-color', '#007bff');
 	$('.btn-close').css('background-color', '#fff');
 	$('#descriptionReport').css('font-family', 'SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace');
