@@ -31,6 +31,7 @@ $(document).ready(function () {
 
 	// Slider Carousel
 	let optionsCarousel;
+	let code = document.getElementById("languages").value;
 	let names = ['Andres Geronimo Parra', 'Maicol Antonio Nuñez', 'Nicolas David Castro Zorrilla', 'Wilmar David Macias Guerrero'];
 	let paths = ['./assets/resources/images/Geronimo.jpeg', './assets/resources/images/maicol.jpeg', './assets/resources/images/nicolas.jpeg', './assets/resources/images/will.jpeg'];
 
@@ -39,7 +40,7 @@ $(document).ready(function () {
 		optionsCarousel += `<img class="nuestraimagen" src="${paths[i]}" alt="${names[i]}">`;
 		optionsCarousel += `<div class="nuestrobloque">`;
 		optionsCarousel += `<div class="nuestrotexto p-3">${names[i]}</div>`;
-		optionsCarousel += `<p class="boldder-fontt p-3 text-white">${names[i]} ${palabras[28 + i]}<p>`;
+		optionsCarousel += `<p class="boldder-fontt p-3 text-white" id="studentDescription">${names[i]} ${code == '1' || code == '0' ? palabras[27+Number(i)] : words[26 + Number(i)]}<p>`;
 		optionsCarousel += `</div>`;
 		optionsCarousel += `</div>`;
 
@@ -72,9 +73,9 @@ $(document).ready(function () {
 	document.getElementById('nextBtn').addEventListener('click', nextSlide);
 	document.getElementById('prevBtn').addEventListener('click', previousSlide);
 
-	let code = document.getElementById("languages").value;
-	$('#prevBtn').text(code == '0' || code == '1' ? palabras[27] : words[27]);
-	$('#nextBtn').text(code == '0' || code == '1' ? palabras[26] : words[26]);
+	
+	$('#prevBtn').text(code == '0' || code == '1' ? palabras[26] : palabras[26]);
+	$('#nextBtn').text(code == '0' || code == '1' ? palabras[25] : palabras[25]);
 	// Slider Carousel End
 
 
@@ -137,8 +138,8 @@ function ShowSelected() {
 		document.getElementById('menu3').innerHTML = palabras[5];
 		document.getElementById('titleBanner').innerHTML = palabras[0];
 		document.getElementById('introduceModalLabel').innerHTML = palabras[22];
-		document.getElementById('prevBtn').innerHTML = palabras[27];
-		document.getElementById('nextBtn').innerHTML = palabras[26];
+		document.getElementById('prevBtn').innerHTML = palabras[26];
+		document.getElementById('nextBtn').innerHTML = palabras[25];
 	} else {
 		document.getElementById('title').innerHTML = words[0];
 		document.getElementById('navbarTitle').innerHTML = words[0];
@@ -147,8 +148,8 @@ function ShowSelected() {
 		document.getElementById('menu3').innerHTML = words[5];
 		document.getElementById('titleBanner').innerHTML = words[0];
 		document.getElementById('introduceModalLabel').innerHTML = words[22];
-		document.getElementById('prevBtn').innerHTML = words[27];
-		document.getElementById('nextBtn').innerHTML = words[26];
+		document.getElementById('prevBtn').innerHTML = words[25];
+		document.getElementById('nextBtn').innerHTML = words[24];
 	}
 }
 
@@ -265,4 +266,12 @@ window.addEventListener('DOMContentLoaded', () => {
 		select.dataset.totalHeight = totalHeight;
 		select.style.setProperty('--max-height', totalHeight);
 	});
+});
+
+// 
+$('#carouselItems').on('mouseover', function() {
+	let code = document.getElementById('languages').value;
+	for (let i = 0; i<4; i++) {
+		$('#studentDescription').text(code == 2 ? words[26+i] : palabras[27+i]);
+	}
 });

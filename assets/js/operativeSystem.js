@@ -45,7 +45,7 @@ $(document).ready(function () {
 	$('#fileDownload').addClass('d-none');
 
 
-	// Carga Estilos de enlace glosario
+	// Carga Estilos y atributos de enlace glosario
 	let language = document.getElementById('languages').value;
 
 	let pathInitial = `../assets/resources/files/glosary/esp/`;
@@ -72,10 +72,9 @@ $(document).ready(function () {
 	$('.colorlib-logo').css('text-decoration', 'none');
 
 
-	// Select Language Options
+	// Crea el select en el dom
 	$('.sel').each(function () {
 		$(this).children('select').css('display', 'none');
-
 		var $current = $(this);
 
 		$(this).find('option').each(function (i) {
@@ -100,13 +99,9 @@ $(document).ready(function () {
 			}));
 		});
 	});
-
-	// Toggling the `.active` state on the `.sel`.
 	$('.sel').click(function () {
 		$(this).toggleClass('active');
 	});
-
-	// Toggling the `.selected` state on the options.
 	$('.sel__box__options').click(function () {
 		var txt = $(this).text();
 		var index = $(this).index();
@@ -202,7 +197,6 @@ function redirecTo(view, type) {
 			default:
 				break;
 		}
-
 	}
 }
 
@@ -216,7 +210,7 @@ $('#operativeSystems').on('change', function () {
 	}
 });
 
-// Descarga los pdfs de los manuales  
+// Descarga los pdfs de los manuales dependiendo el idioma que escoja  
 $('#languagesFile').on('change', function () {
 
 	$('#fileDownload').removeClass('d-none');
@@ -281,12 +275,12 @@ $('#languagesFile').on('change', function () {
 	}
 });
 
-// Dispara el modal y carga titulos del modal
+// Dispara el modal y carga textos y estilos del modal
 $('#glosario').on('click', function () {
 	let language = document.getElementById('languages').value;
 
-	$('#imageColumn').text(language == 1 ? palabras[25] : words[25]);
-	$('#glosarioModalLabel').text(language == 1 ? palabras[12] : words[12]);
+	$('#imageColumn').text(language == 1 ? palabras[24] : words[23]);
+	$('#glosarioModalLabel').text(language == 1 ? palabras[12] : words[11]);
 	$('#modalBoton').text(language == 1 ? palabras[13] : words[13]);
 	$('#glosarioModal').modal('show');
 	$('.modal-body').addClass('text-center');
@@ -295,7 +289,6 @@ $('#glosario').on('click', function () {
 	$('#imageColumn').css('font-family', 'SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace');
 	$('#glosarioModalLabel').css('font-family', 'SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace');
 	$('#modalBoton').css('font-family', 'SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace');
-
 
 	let opt = '';
 	for (let i = 0; i < imagesBackground.length; i++) {
@@ -318,10 +311,10 @@ $('#glosario').on('click', function () {
 
 });
 
-// Cuando se seleccione algun idioma, se español o ingles, lo traduce
+// Cuando se seleccione algun idioma, sea español o ingles, traduce el sitio
 function ShowSelected() {
 	var cod = document.getElementById("languages").value;
-	if (cod == 1) {
+	if (cod == 1 || cod == 0) {
 		document.getElementById('title').innerHTML = palabras[0];
 		document.getElementById('navbarTitle').innerHTML = palabras[0];
 		document.getElementById('menu1').innerHTML = palabras[1];
@@ -349,7 +342,7 @@ function ShowSelected() {
 		document.getElementById('option2').innerHTML = words[5];
 		document.getElementById('glosaryDownload').innerHTML = words[6];
 		document.getElementById('glosario').innerHTML = words[7];
-		document.getElementById('videoText').innerHTML = words[10];
-		document.getElementById('tabText').innerHTML = words[11];
+		document.getElementById('videoText').innerHTML = words[9];
+		document.getElementById('tabText').innerHTML = words[10];
 	}
 }

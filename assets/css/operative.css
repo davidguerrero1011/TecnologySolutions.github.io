@@ -1,8 +1,9 @@
+/* Estilos body */
 body {
   padding: 10px;
-
 }
 
+/* Estilos de los tabs */
 #exTab1 .tab-content {
   color: white;
   background-color: #428bca;
@@ -15,13 +16,9 @@ body {
   padding: 5px 15px;
 }
 
-/* remove border radius for the tab */
-
 #exTab1 .nav-pills>li>a {
   border-radius: 0;
 }
-
-/* change border radius for the tab , apply corners on top*/
 
 #exTab3 .nav-pills>li>a {
   border-radius: 4px 4px 0 0;
@@ -33,17 +30,21 @@ body {
   padding: 5px 15px;
 }
 
+/* Fin Estilos de los tabs */
+
+/* Estilos header */
 .header-color {
   background-color: #007bff;
   color: white;
 }
 
+/* Margen */
 .mx-6 {
   margin-left: 15%;
   margin-right: 15%;
 }
 
-/* imagenes glosario modal */
+/* Se hace efecto color azul cuando se hace hover en imagenes glosario modal */
 .nuestrocontenedor {
   position: relative;
 }
@@ -76,11 +77,15 @@ body {
   opacity: 1;
 }
 
+/* Fin Se hace efecto color azul cuando se hace hover en imagenes glosario modal */
+
+/* se vuelve negrito las letras */
 .boldder-fontt {
   font-weight: bolder;
   color: white;
 }
 
+/* se hace efecto de izquierda al centro en el background de los botones */
 .button_slide {
   color: #FFF;
   border: 2px solid #007bff;
@@ -101,9 +106,7 @@ body {
   box-shadow: inset 0 0 0 50px #007bff;
 }
 
-
-
-/* Select Home */
+/* Estilos del select */
 :root {
   --arrow-bg: rgba(255, 255, 255, 0.3);
   --arrow-icon: url(https://upload.wikimedia.org/wikipedia/commons/9/9d/Caret_down_font_awesome_whitevariation.svg);
@@ -111,7 +114,6 @@ body {
   --select-bg: rgba(255, 255, 255, 0.2);
 }
 
-/* <select> styles */
 select {
   appearance: none;
   border: 0;
@@ -142,7 +144,13 @@ select {
   }
 }
 
-
+/* forma manita en el cursor */
 .cursor {
+  cursor: pointer;
+}
+#nav-video-tab:hover {
+  cursor: pointer;
+}
+#nav-manuales-tab:hover {
   cursor: pointer;
 }

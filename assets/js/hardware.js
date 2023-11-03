@@ -1,6 +1,7 @@
 $(document).ready(function () {
 
-	document.getElementById('titleHardware').innerHTML = palabras[8];
+	// Cuando cargue el dom, se cargan textos
+	document.getElementById('titleHardware').innerHTML = palabras[2];
 	document.getElementById('title').innerHTML = palabras[2];
 
 	// Carga el video de instalacion cuando cargue el DOM
@@ -8,16 +9,18 @@ $(document).ready(function () {
 	$('#hardware').attr('width', '500');
 	$('#hardware').attr('height', '300');
 
-
+	// cuando cargue el dom, se carga el titulo
 	$('#titleHardware').css('color', '#007bff');
 	$('#titleHardware').css('text-shadow', '2px 2px 4px #fff');
 	$('#titleHardware').css('font-size', '40px');
 	$('#titleHardware').css('font-family', '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji');
 	$('#titleHardware').css('color', '#007bff');
 
+	// Por defecto se oculta boton y enlace de glosario
 	$('#seeGlosary').css('display', 'none');
 	$('#fileDownloade').css('display', 'none');
 
+	// Se crear el select y sus opciones cuando cargue el dom
 	let options = '';
 	for (let i = 1; i <= 1; i++) {
 		options += `<option id="option1" value="0" selected>${palabras[14]}</option>`;
@@ -27,23 +30,26 @@ $(document).ready(function () {
 	}
 	$('#optionsHardware').append(options);
 
-
+	// Se carga texto de boton y descarga cuando cargue el dom
 	$('#showGlosary').text(palabras[7]);
 	$('#fileDownloade').text(palabras[6]);
 
+	// Se carga estilos en enlace
 	$('#fileDownloade').css('color', '#fff');
 	$('#fileDownloade').css('text-shadow', '2px 2px 4px #007bff');
 	$('#fileDownloade').css('text-decoration', 'none');
 
+	// Se carga ruta de destino en titulo sitio
 	$('#navbarTitle').attr('href', '../index.html');
 
+	// Se carga texto de titulo del contenido
 	$('#titleBanner').css('font-family', 'SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace');
 	$('#titleBanner').css('font-size', '18px');
 	$('#titleBanner').css('background', 'linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%)');
 	$('#titleBanner').css('text-shadow', '8px 4px 4px black');
 
 
-	// Select Language Options
+	// Se crea el select
 	$('.sel').each(function () {
 		$(this).children('select').css('display', 'none');
 
@@ -72,12 +78,10 @@ $(document).ready(function () {
 		});
 	});
 
-	// Toggling the `.active` state on the `.sel`.
 	$('.sel').click(function () {
 		$(this).toggleClass('active');
 	});
 
-	// Toggling the `.selected` state on the options.
 	$('.sel__box__options').click(function () {
 		var txt = $(this).text();
 		var index = $(this).index();
@@ -89,10 +93,11 @@ $(document).ready(function () {
 		$currentSel.children('.sel__placeholder').text(txt);
 		$currentSel.children('select').prop('selectedIndex', index + 1);
 	});
+	// Fin Se crea el select
 
 });
 
-
+// Dependiendo la opcion seleccionada se muestra el elemento del glosario
 function optionsHardware() {
 
 	let option = document.getElementById('optionsHardware').value;
@@ -109,9 +114,10 @@ function optionsHardware() {
 		$('#seeGlosary').css('display', 'none');
 		$('#fileDownloade').css('display', 'none');
 	}
+
 }
 
-
+// Se traduce el sitio dependiendo el idioma
 function ShowSelected() {
 	var cod = document.getElementById("languages").value;
 	if (cod == 1) {
@@ -121,13 +127,14 @@ function ShowSelected() {
 		document.getElementById('menu2').innerHTML = palabras[2];
 		document.getElementById('menu3').innerHTML = palabras[5];
 		document.getElementById('titleBanner').innerHTML = palabras[0];
-		document.getElementById('titleHardware').innerHTML = palabras[8];
+		document.getElementById('titleHardware').innerHTML = palabras[2];
 		document.getElementById('option1').innerHTML = palabras[14];
 		document.getElementById('option2').innerHTML = palabras[15];
 		document.getElementById('option3').innerHTML = palabras[16];
 		document.getElementById('option4').innerHTML = palabras[17];
 		document.getElementById('showGlosary').innerHTML = palabras[7];
 		document.getElementById('fileDownloade').innerHTML = palabras[6];
+		document.getElementById('glosarioModalLabel').innerHTML = palabras[8];
 	} else {
 		document.getElementById('title').innerHTML = words[0];
 		document.getElementById('navbarTitle').innerHTML = words[0];
@@ -135,32 +142,34 @@ function ShowSelected() {
 		document.getElementById('menu2').innerHTML = words[2];
 		document.getElementById('menu3').innerHTML = words[5];
 		document.getElementById('titleBanner').innerHTML = words[0];
-		document.getElementById('titleHardware').innerHTML = words[8];
-		document.getElementById('option1').innerHTML = words[14];
-		document.getElementById('option2').innerHTML = words[15];
-		document.getElementById('option3').innerHTML = words[16];
-		document.getElementById('option4').innerHTML = words[17];
+		document.getElementById('titleHardware').innerHTML = words[2];
+		document.getElementById('option1').innerHTML = words[13];
+		document.getElementById('option2').innerHTML = words[14];
+		document.getElementById('option3').innerHTML = words[15];
+		document.getElementById('option4').innerHTML = words[16];
 		document.getElementById('showGlosary').innerHTML = words[7];
 		document.getElementById('fileDownloade').innerHTML = words[6];
-		document.getElementById('glosarioModalLabel').innerHTML = words[18];
+		document.getElementById('glosarioModalLabel').innerHTML = words[17];
 	}
 }
 
-
+// Cuando se de click en el boton glosario se cargan los estilos del modal
 $('#showGlosary').on('click', function () {
 	let language = document.getElementById('languages').value;
 
 	$('#glosarioModal').modal('show');
-	$('#glosarioModalLabel').text(language == 1 ? palabras[18] : words[18]);
-	$('#titleModal').text(language == 1 ? palabras[7] : words[7]);
+	$('#glosarioModalLabel').text(language == 0 || language == 1 ? palabras[8] : words[17]);
+	$('#titleModal').text(language == 0 || language == 1 ? palabras[7] : words[7]);
+	$('#modalBoton').text(language == 0 || language == 1 ? palabras[13] : words[12]);
 	$('.modal-body').addClass('text-center');
 	$('.modal-body').css('color', '#007bff');
 	$('.btn-close').css('background-color', '#fff');
 
 });
 
-
+// Cuando se da click en el enlace se descarga el documento
 $('#fileDownloade').on('click', function () {
+
 	let language = document.getElementById('languages').value;
 	let path = language == '1' ? `../assets/resources/files/glosary/eng/` : `../assets/resources/files/glosary/esp/`;
 
@@ -168,4 +177,5 @@ $('#fileDownloade').on('click', function () {
 	$('#fileDownloade').attr('download', `glosario.pdf`);
 	$('#fileDownloade').attr('rel', `${palabras[7]}`);
 	$('#fileDownloade').text(language == 1 ? `${palabras[7]}` : `${words[7]}`);
+
 });

@@ -1,3 +1,4 @@
+/* estilos al reporte */
 #textReport {
   font-size: 18px;
   background: -webkit-linear-gradient(left top, #fff, #007bff);
@@ -6,6 +7,7 @@
   -webkit-text-fill-color: transparent;
 }
 
+/* Al boton reporte hace efecto slide de izquierda al centro */
 .button_slide {
   color: #FFF;
   border: 2px solid #007bff;
@@ -35,7 +37,7 @@
   --select-bg: rgba(255, 255, 255, 0.2);
 }
 
-/* <select> styles */
+/* Estilos del select dropdown */
 select {
   appearance: none;
   border: 0;
@@ -66,6 +68,9 @@ select {
   }
 }
 
-.cursor {
+/* Fin Estilos del select dropdown */
+
+/* pone el cursor como manito cuando pase el mouse encima */
+#technicalReportt:hover {
   cursor: pointer;
 }
