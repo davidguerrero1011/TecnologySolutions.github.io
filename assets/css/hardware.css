@@ -42,6 +42,22 @@
   transition: ease-out 0.4s;
 }
 
+.button_slider {
+  color: black;
+  border: 2px solid #007bff;
+  border-radius: 0px;
+  padding: 18px 36px;
+  display: inline-block;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 14px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 0 #007bff;
+  -webkit-transition: ease-out 0.4s;
+  -moz-transition: ease-out 0.4s;
+  transition: ease-out 0.4s;
+}
+
 .slide_left:hover {
   box-shadow: inset 0 0 0 50px #007bff;
 }
@@ -89,4 +105,81 @@ select {
 /* Cuando se hace hover sobre el enlace, pone el mouse en forma de mano */
 #fileDownloade:hover {
   cursor: pointer;
+}
+
+/* Se hace efecto color azul cuando se hace hover en imagenes glosario modal */
+.nuestrocontenedor {
+  position: relative;
+}
+
+.nuestrobloque {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 90%;
+  opacity: 0;
+  transition: 1.5s ease;
+  background-color: #007bff;
+}
+
+.nuestrotexto {
+  color: white;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+.nuestrocontenedor:hover .nuestrobloque {
+  opacity: 1;
+}
+
+/* Fin Se hace efecto color azul cuando se hace hover en imagenes glosario modal */
+
+.margin-l {
+  left: 35%;
+}
+
+.margin-2 {
+  left: 10%;
+}
+
+.margin-t1 {
+  margin-top: 13% !important;
+}
+
+.cursor-point {
+  cursor: pointer;
+}
+
+/* Texto encima de imagen videos */
+.contenedor{
+  position: relative;
+  display: inline-block;
+  text-align: center;
+}
+.texto-encima{
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+.centrado{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+
+#background-video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
 }

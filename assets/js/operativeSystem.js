@@ -19,6 +19,9 @@ $(document).ready(function () {
 
 	$('#navbarTitle').attr('href', '../index.html');
 
+	$('#centosImage').attr('src', '../assets/resources/images/pictures-video/centos.jpg');
+	$('#centosImage').attr('alt', 'Centos');
+
 	// Carga estilos de los titulos
 	$('#titleSystems').css('color', '#007bff');
 	$('#titleSystems').css('text-shadow', '2px 2px 4px #fff');
@@ -48,7 +51,7 @@ $(document).ready(function () {
 	// Carga Estilos y atributos de enlace glosario
 	let language = document.getElementById('languages').value;
 
-	let pathInitial = `../assets/resources/files/glosary/esp/`;
+	let pathInitial = `../assets/resources/files/glosary/`;
 	$('#glosaryDownload').attr('href', `${pathInitial}operative-systems-glosary.pdf`);
 	$('#glosaryDownload').attr('download', `operative-systems-glosary.pdf`);
 	$('#glosaryDownload').attr('rel', `${language} == 1 ? Glosario : Glosary`);
@@ -279,7 +282,7 @@ $('#languagesFile').on('change', function () {
 $('#glosario').on('click', function () {
 	let language = document.getElementById('languages').value;
 
-	$('#imageColumn').text(language == 1 ? palabras[24] : words[23]);
+	$('#imageColumn').text(language == 1 ? palabras[21] : words[23]);
 	$('#glosarioModalLabel').text(language == 1 ? palabras[12] : words[11]);
 	$('#modalBoton').text(language == 1 ? palabras[13] : words[13]);
 	$('#glosarioModal').modal('show');

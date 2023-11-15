@@ -4,7 +4,7 @@ $(document).ready(function () {
 	document.getElementById('title').innerHTML = `${palabras[5]} - ${palabras[0]}`;
 	document.getElementById('titleEnglish').innerHTML = `${palabras[5]}`;
 	document.getElementById('textReport').innerHTML = `${palabras[16]}`;
-	document.getElementById('technicalReport').innerHTML = `${palabras[19]}`;
+	document.getElementById('technicalReport').innerHTML = `${palabras[7]}`;
 
 	// Cuando Cargue el dom cargan estilos de los titulos
 	$('#titleEnglish').css('color', '#007bff');
@@ -12,10 +12,11 @@ $(document).ready(function () {
 	$('#titleEnglish').css('font-size', '40px');
 	$('#titleEnglish').css('font-family', '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji');
 
-	// Cuando cargue el dom carga el video de instalacion
-	$('#englishVideo').attr('src', '../assets/resources/videos/operative-system-instalation.mp4');
-	$('#englishVideo').attr('width', '454');
-	$('#englishVideo').attr('height', '220');
+	// Cuando cargue el dom carga la imagen de instalacion
+	$('#englishVideo').attr('src', '../assets/resources/images/pictures-video/bilingualism.png');
+	$('#englishVideo').attr('alt', 'English Video Technical Report');
+	$('#englishVideo').attr('width', '250');
+	$('#englishVideo').attr('height', '200');
 
 	// Cuando cargue dom, se carga los estilos del titulo de la pagina
 	$('#titleBanner').css('font-family', 'SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace');
@@ -81,7 +82,7 @@ function ShowSelected() {
 	if (cod == 1) {
 		document.getElementById('title').innerHTML = palabras[5];
 		document.getElementById('titleEnglish').innerHTML = palabras[5];
-		document.getElementById('technicalReport').innerHTML = palabras[20];
+		document.getElementById('technicalReport').innerHTML = palabras[7];
 		document.getElementById('textReport').innerHTML = `${palabras[16]}`;
 		document.getElementById('titleBanner').innerHTML = `${palabras[0]}`;
 		document.getElementById('navbarTitle').innerHTML = `${palabras[0]}`;
@@ -92,7 +93,7 @@ function ShowSelected() {
 		document.getElementById('title').innerHTML = words[5];
 		document.getElementById('titleEnglish').innerHTML = words[5];
 		document.getElementById('textReport').innerHTML = `${words[15]}`;
-		document.getElementById('technicalReport').innerHTML = words[19];
+		document.getElementById('technicalReport').innerHTML = words[7];
 		document.getElementById('titleBanner').innerHTML = words[0];
 		document.getElementById('navbarTitle').innerHTML = `${words[0]}`;
 		document.getElementById('menu1').innerHTML = words[1];
@@ -105,7 +106,7 @@ function ShowSelected() {
 $('#technicalReport').on('click', function () {
 
 	$('#reportModalLabel').text(words[19]);
-	$('#descriptionReport').text(words[20]);
+	$('#descriptionReport').text(words[22]);
 	$('.modal-header').css('background-color', '#007bff');
 	$('.btn-close').css('background-color', '#fff');
 	$('#descriptionReport').css('font-family', 'SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace');
@@ -113,5 +114,16 @@ $('#technicalReport').on('click', function () {
 	$('#reportModalLabel').css('color', '#fff');
 	$('#buttonOk').text(words[12]);
 	$('#reportModal').modal('show');
+
+});
+
+// Se agrega atributos para descargar reporte tecnico en ingles 
+// en el enlace de descarga
+$('#technicalReportt').on('click', function() {
+
+	let pathEnglish = '../assets/resources/files/report/';
+	$('#technicalReportt').attr('rel', 'Report');
+	$('#technicalReportt').attr('download', 'Tecnical-report.pdf');
+	$('#technicalReportt').attr('href', `${pathEnglish}Tecnical-report.pdf`);
 
 });

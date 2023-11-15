@@ -71,6 +71,23 @@ select {
 /* Fin Estilos del select dropdown */
 
 /* pone el cursor como manito cuando pase el mouse encima */
-#technicalReportt:hover {
+.cursor-point:hover {
   cursor: pointer;
+}
+
+.cursor-point {
+  cursor: pointer;
+}
+
+
+#background-video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
 }

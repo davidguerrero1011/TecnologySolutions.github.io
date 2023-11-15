@@ -74,8 +74,8 @@ $(document).ready(function () {
 	document.getElementById('prevBtn').addEventListener('click', previousSlide);
 
 	
-	$('#prevBtn').text(code == '0' || code == '1' ? palabras[26] : palabras[26]);
-	$('#nextBtn').text(code == '0' || code == '1' ? palabras[25] : palabras[25]);
+	$('#prevBtn').text(code == '0' || code == '1' ? palabras[23] : words[25]);
+	$('#nextBtn').text(code == '0' || code == '1' ? palabras[22] : words[24]);
 	// Slider Carousel End
 
 
@@ -138,8 +138,8 @@ function ShowSelected() {
 		document.getElementById('menu3').innerHTML = palabras[5];
 		document.getElementById('titleBanner').innerHTML = palabras[0];
 		document.getElementById('introduceModalLabel').innerHTML = palabras[22];
-		document.getElementById('prevBtn').innerHTML = palabras[26];
-		document.getElementById('nextBtn').innerHTML = palabras[25];
+		document.getElementById('prevBtn').innerHTML = palabras[23];
+		document.getElementById('nextBtn').innerHTML = palabras[22];
 	} else {
 		document.getElementById('title').innerHTML = words[0];
 		document.getElementById('navbarTitle').innerHTML = words[0];
