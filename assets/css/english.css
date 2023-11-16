@@ -1,8 +1,8 @@
 /* estilos al reporte */
 #textReport {
   font-size: 18px;
-  background: -webkit-linear-gradient(left top, #fff, #007bff);
-  background: linear-gradient(to bottom right, #fff, #007bff);
+  background: -webkit-linear-gradient(left top, #ffc107, #007bff);
+  background: linear-gradient(to bottom right, #ffc107, #007bff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

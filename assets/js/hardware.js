@@ -42,8 +42,8 @@ $(document).ready(function () {
 	let optionsCarousel;
 	let code = document.getElementById("languages").value;
 	let paths = ['../assets/resources/images/pictures-video/diagnose-computer.png', '../assets/resources/images/pictures-video/hardware.png', '../assets/resources/images/pictures-video/computer-corrective.png'];
-	let youtubeDomains = ['https://www.youtube.com/watch?v=h81IeP1Lac4', 'https://www.youtube.com/watch?v=h81IeP1Lac4', 'https://www.youtube.com/watch?v=h81IeP1Lac4'];
-	let descriptions = ['Si quieres ver test de prueba en Aida64, solo click aqui!!!', 'Si quieres ver un mantenimiento preventivo, solo click aqui!!!', 'Si quieres ver un mantenimiento correctivo, solo click aqui!!!'];
+	let youtubeDomains = ['https://www.youtube.com/watch?v=h81IeP1Lac4', 'https://www.youtube.com/watch?v=h81IeP1Lac4', 'https://www.youtube.com/watch?v=j_r72XJM5Vw'];
+	let descriptions = ['Para ver test de prueba en Aida64, solo click aqui!!!', 'Para ver un mantenimiento preventivo, solo click aqui!!!', 'Para ver un mantenimiento correctivo, solo click aqui!!!'];
 	let titles = ['Test Aida64', 'Mantenimiento Preventivo', 'Mantenimiento Correctivo'];
 
 	for (let i = 0; i < paths.length; i++) {

@@ -3,8 +3,8 @@ $(document).ready(function () {
 	// Cuando cargue el dom se cargan los titulos de la pagina
 	document.getElementById('title').innerHTML = `${palabras[5]} - ${palabras[0]}`;
 	document.getElementById('titleEnglish').innerHTML = `${palabras[5]}`;
-	document.getElementById('textReport').innerHTML = `${palabras[16]}`;
-	document.getElementById('technicalReport').innerHTML = `${palabras[7]}`;
+	document.getElementById('textReport').innerHTML = `${palabras[17]}`;
+	document.getElementById('technicalReport').innerHTML = `${palabras[16]}`;
 
 	// Cuando Cargue el dom cargan estilos de los titulos
 	$('#titleEnglish').css('color', '#007bff');
@@ -82,8 +82,8 @@ function ShowSelected() {
 	if (cod == 1) {
 		document.getElementById('title').innerHTML = palabras[5];
 		document.getElementById('titleEnglish').innerHTML = palabras[5];
-		document.getElementById('technicalReport').innerHTML = palabras[7];
-		document.getElementById('textReport').innerHTML = `${palabras[16]}`;
+		document.getElementById('technicalReport').innerHTML = palabras[16];
+		document.getElementById('textReport').innerHTML = `${palabras[17]}`;
 		document.getElementById('titleBanner').innerHTML = `${palabras[0]}`;
 		document.getElementById('navbarTitle').innerHTML = `${palabras[0]}`;
 		document.getElementById('menu1').innerHTML = `${palabras[1]}`;
@@ -92,8 +92,8 @@ function ShowSelected() {
 	} else {
 		document.getElementById('title').innerHTML = words[5];
 		document.getElementById('titleEnglish').innerHTML = words[5];
-		document.getElementById('textReport').innerHTML = `${words[15]}`;
-		document.getElementById('technicalReport').innerHTML = words[7];
+		document.getElementById('textReport').innerHTML = `${words[19]}`;
+		document.getElementById('technicalReport').innerHTML = words[18];
 		document.getElementById('titleBanner').innerHTML = words[0];
 		document.getElementById('navbarTitle').innerHTML = `${words[0]}`;
 		document.getElementById('menu1').innerHTML = words[1];
