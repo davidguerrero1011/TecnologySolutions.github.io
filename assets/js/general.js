@@ -7,12 +7,19 @@ $(document).ready(function () {
 	document.getElementById('menu1').innerHTML = palabras[1];
 	document.getElementById('menu2').innerHTML = palabras[2];
 	document.getElementById('menu3').innerHTML = palabras[5];
+	// document.getElementById('menu4').innerHTML = palabras[38];
 	document.getElementById('titleBanner').innerHTML = palabras[0];
+	// document.getElementById('titleContent').innerHTML = palabras[32];
 
 	// Carga algunos elementos con atributos por default
 	$('#navbarTitle').attr('href', './index.html');
 	$('#titleBanner').css('font-size', '14px');
 	$('.colorlib-logo').css('text-decoration', 'none');
+
+	// Checkinputs styles
+	$('#deliverables').addClass('d-none');
+	$('#subjectsContribution').addClass('d-none');
+
 
 	// LLena el select de idiomas disponibles para traducir sitio
 	let options;
@@ -27,7 +34,27 @@ $(document).ready(function () {
 	$('#titleBanner').css('font-size', '18px');
 	$('#titleBanner').css('background', 'linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%)');
 	$('#titleBanner').css('text-shadow', '8px 4px 4px black');
+	
+	$(".accordion-titulo").on('click', function(e){
+           
+        e.preventDefault();
+    
+        var contenido=$(this).next(".accordion-content");
 
+        if(contenido.css("display")=="none"){ //open		
+          contenido.slideDown(250);			
+          $(this).addClass("open");
+        }
+        else{ //close		
+          contenido.slideUp(250);
+          $(this).removeClass("open");	
+        }
+
+      });
+
+
+	$('#meaning').css('font-family', 'SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace');
+	$('#meaning').css('font-size', '12px');
 
 	// Slider Carousel
 	let optionsCarousel;
@@ -36,11 +63,12 @@ $(document).ready(function () {
 	let paths = ['./assets/resources/images/Geronimo.jpeg', './assets/resources/images/maicol.jpeg', './assets/resources/images/nicolas.jpeg', './assets/resources/images/will.jpeg'];
 
 	for (let i = 0; i < names.length; i++) {
+
 		optionsCarousel += `<div class="carousel-item">`;
 		optionsCarousel += `<img class="nuestraimagen" src="${paths[i]}" alt="${names[i]}">`;
 		optionsCarousel += `<div class="nuestrobloque">`;
 		optionsCarousel += `<div class="nuestrotexto p-3">${names[i]}</div>`;
-		optionsCarousel += `<p class="boldder-fontt p-3 text-white" id="studentDescription">${names[i]} ${code == '1' || code == '0' ? palabras[27+Number(i)] : words[26 + Number(i)]}<p>`;
+		optionsCarousel += `<p class="boldder-fontt p-3 text-white" id="studentDescription${[i]}">${names[i]} ${palabras[24+Number(i)]}<p>`;
 		optionsCarousel += `</div>`;
 		optionsCarousel += `</div>`;
 
@@ -73,7 +101,6 @@ $(document).ready(function () {
 	document.getElementById('nextBtn').addEventListener('click', nextSlide);
 	document.getElementById('prevBtn').addEventListener('click', previousSlide);
 
-	
 	$('#prevBtn').text(code == '0' || code == '1' ? palabras[23] : words[25]);
 	$('#nextBtn').text(code == '0' || code == '1' ? palabras[22] : words[24]);
 	// Slider Carousel End
@@ -140,6 +167,12 @@ function ShowSelected() {
 		document.getElementById('introduceModalLabel').innerHTML = palabras[22];
 		document.getElementById('prevBtn').innerHTML = palabras[23];
 		document.getElementById('nextBtn').innerHTML = palabras[22];
+		for (let i = 0; i < 4; i++) {
+			document.getElementById('studentDescription'+i).innerHTML = palabras[24+i];	
+		}
+		document.getElementById('cardHeader').innerHTML = palabras[1];
+		document.getElementById('cardHeader').innerHTML = palabras[37];
+		// document.getElementById('menu4').innerHTML = palabras[38];
 	} else {
 		document.getElementById('title').innerHTML = words[0];
 		document.getElementById('navbarTitle').innerHTML = words[0];
@@ -150,6 +183,12 @@ function ShowSelected() {
 		document.getElementById('introduceModalLabel').innerHTML = words[22];
 		document.getElementById('prevBtn').innerHTML = words[25];
 		document.getElementById('nextBtn').innerHTML = words[24];
+		for (let i = 0; i < 4; i++) {
+			document.getElementById('studentDescription'+i).innerHTML = words[26+i];	
+		}
+		document.getElementById('cardHeader').innerHTML = words[1];
+		document.getElementById('meaning').innerHTML = words[39];
+		// document.getElementById('menu4').innerHTML = words[40];
 	}
 }
 
@@ -211,6 +250,10 @@ function redirecTo(view, type) {
 				window.location.href = './views/English.html';
 				break;
 
+			// case 4:
+			// 	window.location.href = './views/LogicProgrammation.html';
+			// 	break;
+
 			default:
 				break;
 		}
@@ -268,10 +311,43 @@ window.addEventListener('DOMContentLoaded', () => {
 	});
 });
 
-// 
-$('#carouselItems').on('mouseover', function() {
+ 
+$('#nextBtn').on('click', function() {
 	let code = document.getElementById('languages').value;
 	for (let i = 0; i<4; i++) {
-		$('#studentDescription').text(code == 2 ? words[26+i] : palabras[27+i]);
+		$('#studentDescription').text(code == 2 ? words[26+i] : palabras[24+i]);
 	}
 });
+$('#prevBtn').on('click', function() {
+	let code = document.getElementById('languages').value;
+	for (let i = 0; i<4; i++) {
+		$('#studentDescription').text(code == 2 ? words[26+i] : palabras[24+i]);
+	}
+});
+
+
+
+	
+
+function showContent(type) {
+	
+	switch (type) {
+		case 1:
+			$('#integrators').removeClass('d-none');
+			$('#subjectsContribution').addClass('d-none');
+			break;
+
+		case 2:
+			$('#subjectsContribution').removeClass('d-none');
+			$('#integrators').addClass('d-none');
+
+			$('#contributionsSubject').text(palabras[33]);
+			$('#contributionsSubject').css('color', 'black');
+			$('#contributionsSubject').css('text-shadow', '2px 2px 4px #ffc107');
+			$('#contributionsSubject').css('font-family', 'SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace');
+			break;
+
+		default:
+			break;
+	}
+}

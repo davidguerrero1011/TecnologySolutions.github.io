@@ -42,7 +42,7 @@ $(document).ready(function () {
 	let optionsCarousel;
 	let code = document.getElementById("languages").value;
 	let paths = ['../assets/resources/images/pictures-video/diagnose-computer.png', '../assets/resources/images/pictures-video/hardware.png', '../assets/resources/images/pictures-video/computer-corrective.png'];
-	let youtubeDomains = ['https://www.youtube.com/watch?v=h81IeP1Lac4', 'https://www.youtube.com/watch?v=h81IeP1Lac4', 'https://www.youtube.com/watch?v=j_r72XJM5Vw'];
+	let youtubeDomains = ['https://www.youtube.com/watch?v=a5zvuuNDuSQ', 'https://www.youtube.com/watch?v=h81IeP1Lac4', 'https://www.youtube.com/watch?v=j_r72XJM5Vw'];
 	let descriptions = ['Para ver test de prueba en Aida64, solo click aqui!!!', 'Para ver un mantenimiento preventivo, solo click aqui!!!', 'Para ver un mantenimiento correctivo, solo click aqui!!!'];
 	let titles = ['Test Aida64', 'Mantenimiento Preventivo', 'Mantenimiento Correctivo'];
 
@@ -209,7 +209,7 @@ $('#showGlshowGlosaryosary').on('click', function () {
 								<div class="nuestrocontenedor">
 									<img class="nuestraimagen" src="${hardwarePaths[i]}">
 									<div class="nuestrobloque">
-										<div class="nuestrotexto p-3">${language == 0 || language == 1 ? hardwareSpanishDescriptions[i] : descriptionsTranslate[i]}</div>
+										<div class="nuestrotexto p-3">${language == 0 || language == 1 ? hardwareSpanishDescriptions[i] : hardwareEnglishDescriptions[i]}</div>
 										<p class="boldder-fontt">${language == 0 || language == 1 ?  hardwareGlosaryWords[i] : hardwareGlosaryTranslate[i]}<p>
 									</div>
 								</div>
@@ -230,8 +230,8 @@ $('#fileDownloade').on('click', function () {
 
 	$('#fileDownloade').attr('href', `${path}glosario-hardware.pdf`);
 	$('#fileDownloade').attr('download', `glosario-hardware.pdf`);
-	$('#fileDownloade').attr('rel', `${palabras[7]}`);
-	$('#fileDownloade').text(language == 1 ? `${palabras[7]}` : `${words[7]}`);
+	$('#fileDownloade').attr('rel', `${palabras[6]}`);
+	$('#fileDownloade').text(language == 0 || language == 1 ? `${palabras[6]}` : `${words[6]}`);
 
 });
 
