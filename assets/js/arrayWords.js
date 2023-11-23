@@ -42,6 +42,7 @@ let palabras = [
     'Conversiones',
     'Tablas De Verdad',
     'Código Java',
+    'Conversión Números',
 ];
 
 
@@ -90,6 +91,7 @@ let words = [
     'Convertions',
     'truth Tables',
     'Java Source',
+    'Number Convertion',
 ];
 
 

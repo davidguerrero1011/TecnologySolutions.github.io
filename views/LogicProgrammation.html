@@ -22,6 +22,9 @@
     <!-- Bootstrap Library CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+   
+    <!-- Sweet Alert Library -->
+    <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
 
 </head>
 
@@ -87,19 +90,33 @@
                                     <label class="form-check-label" for="binariosRadio1" id="binariosRadio"></label>
                                 </div>
                                 <div class="form-check col-4" id="truthTable">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="verdadRadio1" onclick="showContent(2);">
-                                    <label class="form-check-label" for="verdadRadio1" id="verdadRadio"></label>
-                                </div>
-                                <div class="form-check col-4" id="sourceJava">
                                     <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                        id="javaSourceRadio1" onclick="showContent(3);">
-                                    <label class="form-check-label" for="javaSourceRadio1" id="javaSourceRadio"></label>
+                                        id="verdadRadio1" onclick="showContent(2);">
+                                    <label class="form-check-label" for="verdadRadio1" id="verdadRadio"></label>
                                 </div>
                             </div>
                         </div>
 
                         <div id="binarios">
-                            <h3>Binarios</h3>
+                            <h3 class="mt-4" id="convertNumbers"></h3>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="align-center col-4">
+                                        <select id="convertions" onchange="selectConvertions();">
+                                            <option value="0" selected>Seleccione una tabla</option>
+                                        </select>
+                                    </div>
+                                    <div class="align-center col-4">
+                                        <select id="convertions2" onchange="selectConvertions();">
+                                            <option value="0" selected>Seleccione una tabla</option>
+                                        </select>
+                                    </div>          
+                                    <div class="align-center col-4" id="result">
+                                        <label for="resultInput">Resultado</label>
+                                        <input type="text" class="form-control" id="resultInput" aria-describedby="convertionsHelp">
+                                    </div>          
+                                </div>
+                            </div>
                         </div>
 
                         <div id="verdad" class="mt-5">
@@ -115,30 +132,55 @@
                                     <div class="col-6">
                                         <table class="table">
                                             <thead>
-                                              <tr id="encabezado1">
-                                                <th scope="col">#</th>
-                                                <th scope="col">P</th>
-                                                <th scope="col">~P</th>
-                                              </tr>
+                                                <tr id="encabezado1">
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">P</th>
+                                                    <th scope="col">~P</th>
+                                                </tr>
 
-                                              <tr id="encabezado2">
-                                                <th scope="col">#</th>
-                                                <th scope="col">P</th>
-                                                <th scope="col">Q</th>
-                                                <th scope="col">P^Q</th>
-                                              </tr>
+                                                <tr id="encabezado2">
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">P</th>
+                                                    <th scope="col">Q</th>
+                                                    <th scope="col">P^Q</th>
+                                                </tr>
+
+                                                <tr id="encabezado3">
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">P</th>
+                                                    <th scope="col">Q</th>
+                                                    <th scope="col">PvQ</th>
+                                                </tr>
+
+                                                <tr id="encabezado4">
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">P</th>
+                                                    <th scope="col">Q</th>
+                                                    <th scope="col">P->Q</th>
+                                                </tr>
+
+                                                <tr id="encabezado5">
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">P</th>
+                                                    <th scope="col">Q</th>
+                                                    <th scope="col">P<->Q</th>
+                                                </tr>
+
+                                                <tr id="encabezado6">
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">P</th>
+                                                    <th scope="col">Q</th>
+                                                    <th scope="col">P△Q</th>
+                                                </tr>
+
                                             </thead>
                                             <tbody id="tablaVerdad"></tbody>
-                                          </table>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
 
                         </div>
-
-                        <div id="codigoJava">
-                            <h3>Codigo Java</h3>
-                        </div> 
 
                     </div>
                 </div>
@@ -171,6 +213,9 @@
     <!-- General JS  -->
     <script src="../assets/js/arrayWords.js"></script>
     <script src="../assets/js/programmation.js"></script>
+
+    <!-- Sweet Alert Library -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
 
 </body>
 

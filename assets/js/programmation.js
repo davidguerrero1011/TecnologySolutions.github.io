@@ -12,7 +12,8 @@ $(document).ready(function () {
     document.getElementById('titleProgrammation').innerHTML = palabras[38];
     document.getElementById('binariosRadio').innerHTML = palabras[39];
     document.getElementById('verdadRadio').innerHTML = palabras[40];
-    document.getElementById('javaSourceRadio').innerHTML = palabras[41];
+    document.getElementById('convertNumbers').innerHTML = palabras[42];
+    
 
     // Carga algunos elementos con atributos por default
     $('#navbarLogicTitle').attr('href', '../index.html');
@@ -20,7 +21,6 @@ $(document).ready(function () {
     $('.colorlib-logo').css('text-decoration', 'none');
 
     $('#verdad').addClass('d-none');
-    $('#codigoJava').addClass('d-none');
     $('#tableShow').addClass('d-none');
 
     // Cuando Cargue el dom cargan estilos de los titulos
@@ -104,6 +104,24 @@ $(document).ready(function () {
         $currentSel.children('select').prop('selectedIndex', index + 1);
     });
 
+    
+    // LLena el select de conversiones
+    let convertionsCategory1 = ['Binario', 'Decimal', 'Hexadecimal', 'Octagonal'];
+    let optionsConvertions1 = '';
+    for (let i=0; i<convertionsCategory1.length; i++) {
+        optionsConvertions1 += `<option value="${i+1}">${convertionsCategory1[i]}</option>`;
+    }
+    $('#convertions').append(optionsConvertions1);
+
+    // LLena el select de conversiones
+    let convertionsCategory2 = ['Binario', 'Decimal', 'Hexadecimal', 'Octagonal'];
+    let optionsConvertions2 = '';
+    for (let i=0; i<convertionsCategory2.length; i++) {
+        optionsConvertions2 += `<option value="${i+1}">${convertionsCategory2[i]}</option>`;
+    }
+    $('#convertions2').append(optionsConvertions2);
+    $('#result').addClass('d-none');
+
 });
 
 function ShowSelected() {
@@ -119,7 +137,7 @@ function ShowSelected() {
         document.getElementById('titleProgrammation').innerHTML = palabras[38];
         document.getElementById('binariosRadio').innerHTML = palabras[39];
         document.getElementById('verdadRadio').innerHTML = palabras[40];
-        document.getElementById('javaSourceRadio').innerHTML = palabras[41];
+        document.getElementById('convertNumbers').innerHTML = palabras[42];
     } else {
         document.getElementById('titleLogic').innerHTML = words[40];
         document.getElementById('navbarLogicTitle').innerHTML = words[0];
@@ -131,7 +149,7 @@ function ShowSelected() {
         document.getElementById('titleProgrammation').innerHTML = words[40];
         document.getElementById('binariosRadio').innerHTML = words[41];
         document.getElementById('verdadRadio').innerHTML = words[42];
-        document.getElementById('javaSourceRadio').innerHTML = words[43];
+        document.getElementById('convertNumbers').innerHTML = words[44];
     }
 }
 
@@ -265,13 +283,13 @@ function showContent(type) {
         case 1:
             $('#binarios').removeClass('d-none');
             $('#verdad').addClass('d-none');
-            $('#codigoJava').addClass('d-none');
+       
+
             break;
 
         case 2:
             $('#verdad').removeClass('d-none');
             $('#binarios').addClass('d-none');
-            $('#codigoJava').addClass('d-none');
 
             
             // LLena el select con las tablas a mostrar
@@ -284,12 +302,6 @@ function showContent(type) {
             $('#tables').append(tables);
             break;
 
-        case 3:
-            $('#codigoJava').removeClass('d-none');
-            $('#binarios').addClass('d-none');
-            $('#verdad').addClass('d-none');
-            break;
-    
         default:
             break;
     }
@@ -302,16 +314,28 @@ function selectTable() {
     $('#tableShow').removeClass('d-none');
     $('#encabezado1').addClass('d-none');
     $('#encabezado2').addClass('d-none');
+    $('#encabezado3').addClass('d-none');
 
-    let conjuncion = '';
+    let antecedente = [];
+    let consecuente = [];
+
     let negacion = '';
+    let conjuncion = '';
+    let disyuncion = '';
+    let condicional = '';
+    let bicondicional = '';
+    let disyuncionF = '';
+
     switch (table) {
         case '1':
             
             $('#encabezado1').removeClass('d-none');
             $('#encabezado2').addClass('d-none');
-            
-            conjuncion = '';
+            $('#encabezado3').addClass('d-none');
+            $('#encabezado4').addClass('d-none');
+            $('#encabezado5').addClass('d-none');
+            $('#encabezado6').addClass('d-none');
+
             let valor = ['V', 'F'];
             for (let i=0; i<valor.length; i++) {
                 negacion += `
@@ -328,36 +352,149 @@ function selectTable() {
 
             $('#encabezado2').removeClass('d-none');
             $('#encabezado1').addClass('d-none');
-            
-            negacion = '';
-            for (let i=0; i<4; i++) {
+            $('#encabezado3').addClass('d-none');
+            $('#encabezado4').addClass('d-none');
+            $('#encabezado5').addClass('d-none');
+            $('#encabezado6').addClass('d-none');
+
+            antecedente = ['V', 'V', 'F', 'F'];
+            consecuente = ['V', 'F', 'V', 'F'];
+
+            for (let i=0; i<antecedente.length; i++) {
                 conjuncion += `<tr>`
-                if (i == 0) {
-                    conjuncion += `<th scope="row">${i+1}</th>`
-                    conjuncion += `<td>V</td>`;
-                    conjuncion += `<td>V</td>`;
-                    conjuncion += `<td>V</td></tr>`;
-                } else if(i == 1) {
-                    conjuncion += `<th scope="row">${i+1}</th>`
-                    conjuncion += `<td>V</td>`;
-                    conjuncion += `<td>F</td>`;
-                    conjuncion += `<td>F</td></tr>`;
-                } else if(i == 2) {
-                    conjuncion += `<th scope="row">${i+1}</th>`
-                    conjuncion += `<td>F</td>`;
-                    conjuncion += `<td>V</td>`;
-                    conjuncion += `<td>F</td></tr>`;
-                } else {
-                    conjuncion += `<th scope="row">${i+1}</th>`
-                    conjuncion += `<td>F</td>`;
-                    conjuncion += `<td>F</td>`;
-                    conjuncion += `<td>F</td></tr>`;
-                }
+                conjuncion += `<th scope="row">${i+1}</th>`
+                conjuncion += `<td>${antecedente[i]}</td>`;
+                conjuncion += `<td>${consecuente[i]}</td>`;
+                conjuncion += `<td>${antecedente[i] == 'V' && consecuente[i] == 'V' ? 'V' : 'F'}</td></tr>`;
             }
             $('#tablaVerdad').append(conjuncion);
             break;    
+
+        case '3':
+
+            $('#encabezado3').removeClass('d-none');
+            $('#encabezado1').addClass('d-none');
+            $('#encabezado2').addClass('d-none');
+            $('#encabezado4').addClass('d-none');
+            $('#encabezado5').addClass('d-none');
+            $('#encabezado6').addClass('d-none');
+
+            antecedente = ['V', 'V', 'F', 'F'];
+            consecuente = ['V', 'F', 'V', 'F'];
+            
+            for (let i=0; i<consecuente.length; i++) {
+                disyuncion += `<tr>`
+                disyuncion += `<th scope="row">${i+1}</th>`
+                disyuncion += `<td>${antecedente[i]}</td>`;
+                disyuncion += `<td>${consecuente[i]}</td>`;
+                disyuncion += `<td>${antecedente[i] == 'F' && consecuente[i] == 'F' ? 'F' : 'V'}</td></tr>`;
+
+            }
+            $('#tablaVerdad').append(disyuncion);
+            break;
+            
+        case '4':
+
+            $('#encabezado4').removeClass('d-none');
+            $('#encabezado1').addClass('d-none');
+            $('#encabezado2').addClass('d-none');
+            $('#encabezado3').addClass('d-none');
+            $('#encabezado5').addClass('d-none');
+            $('#encabezado6').addClass('d-none');
+
+            antecedente = ['V', 'V', 'F', 'F'];
+            consecuente = ['V', 'F', 'V', 'F'];
+            
+            for (let i=0; i<antecedente.length; i++) {
+                condicional += `<tr>`
+                condicional += `<th scope="row">${i+1}</th>`
+                condicional += `<td>${antecedente[i]}</td>`;
+                condicional += `<td>${consecuente[i]}</td>`;
+                condicional += `<td>${antecedente[i] == 'V' && consecuente[i] == 'F' ? 'F' : 'V'}</td></tr>`;
+
+            }
+            $('#tablaVerdad').append(condicional);
+            break;
+
+        case '5':
+
+            $('#encabezado5').removeClass('d-none');
+            $('#encabezado1').addClass('d-none');
+            $('#encabezado2').addClass('d-none');
+            $('#encabezado3').addClass('d-none');
+            $('#encabezado4').addClass('d-none');
+            $('#encabezado6').addClass('d-none');
+
+            antecedente = ['V', 'V', 'F', 'F'];
+            consecuente = ['V', 'F', 'V', 'F'];
+            
+            for (let i=0; i<antecedente.length; i++) {
+                bicondicional += `<tr>`
+                bicondicional += `<th scope="row">${i+1}</th>`
+                bicondicional += `<td>${antecedente[i]}</td>`;
+                bicondicional += `<td>${consecuente[i]}</td>`;
+                bicondicional += `<td>${antecedente[i] == 'V' && consecuente[i] == 'V' || antecedente[i] == 'F' && consecuente[i] == 'F' ? 'V' : 'F'}</td></tr>`;
+
+            }
+            $('#tablaVerdad').append(bicondicional);
+            break;
+
+        case '6':
+
+            $('#encabezado6').removeClass('d-none');
+            $('#encabezado1').addClass('d-none');
+            $('#encabezado2').addClass('d-none');
+            $('#encabezado3').addClass('d-none');
+            $('#encabezado4').addClass('d-none');
+            $('#encabezado5').addClass('d-none');
+
+            antecedente = ['V', 'V', 'F', 'F'];
+            consecuente = ['V', 'F', 'V', 'F'];
+            
+            for (let i=0; i<antecedente.length; i++) {
+                disyuncionF += `<tr>`
+                disyuncionF += `<th scope="row">${i+1}</th>`
+                disyuncionF += `<td>${antecedente[i]}</td>`;
+                disyuncionF += `<td>${consecuente[i]}</td>`;
+                disyuncionF += `<td>${antecedente[i] == 'V' && consecuente[i] == 'V' || antecedente[i] == 'F' && consecuente[i] == 'F' ? 'F' : 'V'}</td></tr>`;
+
+            }
+            $('#tablaVerdad').append(disyuncionF);
+            break;
         default:
             break;
     }
+
+}
+
+
+function selectConvertions() {
+
+    let firstVal = document.getElementById('convertions').value;
+    let secondVal = document.getElementById('convertions2').value;
+    
+    if (firstVal != '0' && secondVal != '0') {
+        $('#result').removeClass('d-none');
+        
+        for (let i=0; i<4; i++) {
+            if (firstVal == i+1 && secondVal == i+1) {
+                $('#result').addClass('d-none');
+                Swal.fire({
+                    icon: "error",
+                    title: "No puede",
+                    text: "Usted no puede hacer la conversión de los mismos terminos!",
+                });
+            } else {
+                if (firstVal == '1' && secondVal == '2') {
+                    
+                } else {
+                    
+                }
+            }
+        }
+    } else {
+        $('#result').addClass('d-none');
+    }
+
 
 }

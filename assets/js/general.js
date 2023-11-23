@@ -250,9 +250,9 @@ function redirecTo(view, type) {
 				window.location.href = './views/English.html';
 				break;
 
-			// case 4:
-			// 	window.location.href = './views/LogicProgrammation.html';
-			// 	break;
+			case 4:
+				window.location.href = './views/LogicProgrammation.html';
+				break;
 
 			default:
 				break;
@@ -270,6 +270,10 @@ function redirecTo(view, type) {
 
 			case 3:
 				window.location.href = './English.html';
+				break;
+
+			case 4:
+				window.location.href = './views/LogicProgrammation.html';
 				break;
 
 			default:

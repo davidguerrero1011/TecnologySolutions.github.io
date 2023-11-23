@@ -301,7 +301,7 @@ $('#glosario').on('click', function () {
 						<div class="nuestrocontenedor">
 							<img class="nuestraimagen" src="${imagesBackground[i]}">
 							<div class="nuestrobloque">
-								<div class="nuestrotexto p-3">${language == 1 ? imagesDescripts[i] : descriptionsTranslate[i]}</div>
+								<div class="nuestrotexto p-3" id="textoDescripcion">${imagesDescripts[i]}</div>
 								<p class="boldder-fontt">${titles[i]}<p>
 							</div>
 						</div> 
@@ -347,5 +347,9 @@ function ShowSelected() {
 		document.getElementById('glosario').innerHTML = words[7];
 		document.getElementById('videoText').innerHTML = words[9];
 		document.getElementById('tabText').innerHTML = words[10];
+
+		for (let i=0; i<descriptionsTranslate.length; i++) {
+			document.getElementById('textoDescripcion').innerHTML = descriptionsTranslate[i];
+		}
 	}
 }
