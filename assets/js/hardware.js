@@ -160,6 +160,14 @@ function ShowSelected() {
 		document.getElementById('showGlshowGlosaryosary').innerHTML = palabras[7];
 		document.getElementById('videoTexts').innerHTML = palabras[10];
 		document.getElementById('glosaryText').innerHTML = palabras[7];
+
+		for (let i = 0; i < hardwareEnglishDescriptions.length; i++) {
+			document.getElementById(`hardwareLetters${i}`).innerHTML = hardwareSpanishDescriptions[i];			
+		}
+
+		for (let i = 0; i < hardwareEnglishDescriptions.length; i++) {
+			document.getElementById(`hardwareDescrip${i}`).innerHTML = hardwareGlosaryTranslate[i];			
+		}
 	} else {
 		document.getElementById('title').innerHTML = words[0];
 		document.getElementById('navbarTitle').innerHTML = words[0];
@@ -176,6 +184,14 @@ function ShowSelected() {
 		document.getElementById('showGlshowGlosaryosary').innerHTML = words[7];
 		document.getElementById('videoTexts').innerHTML = words[9];
 		document.getElementById('glosaryText').innerHTML = words[7];
+
+		for (let i = 0; i < hardwareEnglishDescriptions.length; i++) {
+			document.getElementById(`hardwareLetters${i}`).innerHTML = hardwareEnglishDescriptions[i];			
+		}
+
+		for (let i = 0; i < hardwareGlosaryTranslate.length; i++) {
+			document.getElementById(`hardwareDescrip${i}`).innerHTML = hardwareGlosaryTranslate[i];			
+		}
 	}
 }
 
@@ -209,8 +225,8 @@ $('#showGlshowGlosaryosary').on('click', function () {
 								<div class="nuestrocontenedor">
 									<img class="nuestraimagen" src="${hardwarePaths[i]}">
 									<div class="nuestrobloque">
-										<div class="nuestrotexto p-3">${language == 0 || language == 1 ? hardwareSpanishDescriptions[i] : hardwareEnglishDescriptions[i]}</div>
-										<p class="boldder-fontt">${language == 0 || language == 1 ?  hardwareGlosaryWords[i] : hardwareGlosaryTranslate[i]}<p>
+										<div class="nuestrotexto p-3" id="hardwareLetters${i}">${hardwareSpanishDescriptions[i]}</div>
+										<p class="boldder-fontt" id="hardwareDescrip${i}">${hardwareGlosaryWords[i]}<p>
 									</div>
 								</div>
 							</td>`; 
